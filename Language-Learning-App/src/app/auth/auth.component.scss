@@ -1,4 +1,17 @@
+@import "variables";
+
 .auth {
   display: flex;
+  height: 100vh;
   justify-content: center;
+  &__image,
+  &__login-panel {
+    display: flex;
+  }
+  &__image {
+    width: 50%;
+  }
+  &__login-panel {
+    background-color: $blue;
+  }
 }
