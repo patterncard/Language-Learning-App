@@ -1,21 +1,62 @@
-@import "variables";
-
-.auth {
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v8_12 {
   display: flex;
-  height: 100vh;
-  justify-content: center;
-  &__image,
-  &__login-panel {
-    display: flex;
+  flex-direction: column;
+  vertical-align: auto;
+  align-items: center;
+  width: 100%;
+  height: 980px;
+  opacity: 1;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v15_6 {
+  width: 731px;
+  color: rgba(146, 231, 94, 1);
+  top: 71px;
+  left: 354px;
+  margin-top: 71px;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 48px;
+  opacity: 1;
+  text-align: left;
+}
+.v15_7 {
+  width: 242px;
+  color: rgba(51, 51, 51, 1);
+  top: 177px;
+  left: 598px;
+  margin-top: 48px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+.name {
+  color: #fff;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  &__username {
+    color: #c7c7c7;
   }
-  &__image {
-    width: 50%;
-  }
-  img {
-    width: 100%;
-  }
-  &__login-panel {
-    width: 50%;
-    background-color: $blue;
+  // &__line {
+  hr {
+    width: 248px;
+    // background: #f00;
+
+    height: 15px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgb(54, 132, 9);
   }
 }
