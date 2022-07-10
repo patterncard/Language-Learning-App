@@ -50,13 +50,8 @@ body {
   &__username {
     color: #c7c7c7;
   }
-  // &__line {
-  hr {
+  &__line {
     width: 248px;
-    // background: #f00;
-
-    height: 15px;
-    border: 0;
-    box-shadow: inset 0 12px 12px -12px rgb(54, 132, 9);
+    border-top: 1px solid #c7c7c7;
   }
 }
