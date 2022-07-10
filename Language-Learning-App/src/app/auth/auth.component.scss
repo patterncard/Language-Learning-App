@@ -44,14 +44,38 @@ body {
 .name {
   color: #fff;
 }
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  &__username {
-    color: #c7c7c7;
+.auth {
+  &-container {
+    padding: 29px;
+    margin-top: 48px;
+    background-color: #fff;
+    border-radius: 5%;
   }
-  &__line {
-    width: 248px;
-    border-top: 1px solid #c7c7c7;
+  &-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    &__username {
+      color: #c7c7c7;
+    }
+    &__line {
+      width: 248px;
+      border-top: 1px solid #c7c7c7;
+      margin: 12px 0;
+    }
+    &__username,
+    &__password {
+      margin-bottom: 12px;
+    }
+    &__button {
+      &-login {
+        background-color: #93e85f;
+        border: #93e85f;
+      }
+      &-sign {
+        background-color: #5fb6e8;
+        border: #5fb6e8;
+      }
+    }
   }
 }
