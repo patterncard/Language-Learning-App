@@ -19,8 +19,9 @@
 			<form class="auth-form p-inputtext-lg p-button-lg">
 				<input class="auth-form__username " placeholder="Username" type="text" pInputText>
 				<input class="auth-form__password " placeholder="Password" type="text" pInputText>
-				<button class="auth-form__button-login p-button-lg" pButton>Log In</button>
-				<hr class="auth-form__line">
+				<button type="button" (click)="show()" pButton icon="pi pi-info-circle" label="Show"></button>
+				<button class="auth-form__button-login p-button-lg" (click)="show()" pButton>Log In</button>
+				<hr class=" auth-form__line">
 				<button class="auth-form__button-sign p-button-lg" pButton>Sign Up</button>
 			</form>
 		</div>
