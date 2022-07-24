@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './product';
-import { SignUpService } from './sign-up.service';
+// import { SignUpService } from './sign-up.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 
@@ -10,23 +9,13 @@ import { DynamicDialogConfig } from 'primeng/dynamicdialog';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
-
-  products: Product[];
-
-
   constructor(
-    private productService: SignUpService,
+    // private productService: SignUpService,
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig
   ) {}
 
-  ngOnInit() {
-    this.productService
-      .getProductsSmall()
-      .then((products) => (this.products = products));
-  }
+  // ngOnInit() { }
 
-  selectProduct(product: Product) {
-    this.ref.close(product);
-  }
+  showSignUp() {}
 }

@@ -7,7 +7,7 @@ import { DialogService } from 'primeng/dynamicdialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SignUpService } from './auth/sign-up/sign-up.service';
+// import { SignUpService } from './auth/sign-up/sign-up.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +17,8 @@ import { SignUpService } from './auth/sign-up/sign-up.service';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [DialogService, MessageService, SignUpService],
+  // providers: [DialogService, MessageService, SignUpService],
+  providers: [DialogService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

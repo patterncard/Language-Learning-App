@@ -16,7 +16,7 @@ import {
 } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { SignUpService } from './sign-up/sign-up.service';
+// import { SignUpService } from './sign-up/sign-up.service';
 import { DialogModule } from 'primeng/dialog';
 import { MessageService } from 'primeng/api';
 @NgModule({
@@ -33,6 +33,6 @@ import { MessageService } from 'primeng/api';
     HttpClientModule,
   ],
   entryComponents: [SignUpComponent],
-  providers: [SignUpService],
+  // providers: [SignUpService],
 })
 export class AuthModule {}

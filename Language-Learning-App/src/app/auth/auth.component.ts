@@ -4,7 +4,6 @@ import { DialogService } from 'primeng/dynamicdialog';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 import { MessageService } from 'primeng/api';
-import { Product } from './sign-up/product';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
@@ -20,22 +19,14 @@ export class AuthComponent {
   ref: DynamicDialogRef;
 
   // ngOnInit(): void {}
-  show() {
+  logIn() {}
+
+  showSignUp() {
     this.ref = this.dialogService.open(SignUpComponent, {
-      header: 'Choose a Product',
+      header: 'Sign Up',
       width: '70%',
       contentStyle: { 'max-height': '500px', overflow: 'auto' },
       baseZIndex: 10000,
-    });
-
-    this.ref.onClose.subscribe((product: Product) => {
-      if (product) {
-        this.messageService.add({
-          severity: 'info',
-          summary: 'Product Selected',
-          detail: product.name,
-        });
-      }
     });
   }
 
