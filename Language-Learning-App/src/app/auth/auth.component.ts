@@ -8,11 +8,8 @@ import { Product } from './sign-up/product';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
-  selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
-  providers: [DialogService, MessageService],
-  animations: [DialogService, MessageService], // <-- Don't forget!
 })
 export class AuthComponent {
   constructor(
@@ -23,7 +20,6 @@ export class AuthComponent {
   ref: DynamicDialogRef;
 
   // ngOnInit(): void {}
-
   show() {
     this.ref = this.dialogService.open(SignUpComponent, {
       header: 'Choose a Product',
