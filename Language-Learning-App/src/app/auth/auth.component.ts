@@ -5,6 +5,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 import { MessageService } from 'primeng/api';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   templateUrl: './auth.component.html',
@@ -13,13 +15,32 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 export class AuthComponent {
   constructor(
     public dialogService: DialogService,
-    public messageService: MessageService
+    public messageService: MessageService,
+    public httpClient: HttpClient
   ) {}
 
   ref: DynamicDialogRef;
 
   // ngOnInit(): void {}
-  logIn() {}
+  username = new FormControl('');
+  password = new FormControl('');
+
+  logIn() {
+    this.httpClient
+      .post('http://localhost:1337/api/auth/local', {
+        identifier: this.username.value,
+        password: this.password.value,
+      })
+      .subscribe(
+        (x) => {
+          console.log(x);
+        },
+        (qweqweqwewy) => {
+          console.log(qweqweqwewy);
+        }
+      );
+  }
+
 
   showSignUp() {
     this.ref = this.dialogService.open(SignUpComponent, {

@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { SignUpService } from './sign-up/sign-up.service';
 import { DialogModule } from 'primeng/dialog';
 import { MessageService } from 'primeng/api';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AuthComponent, SignUpComponent],
   imports: [
@@ -31,6 +32,7 @@ import { MessageService } from 'primeng/api';
     ToastModule,
     TableModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   entryComponents: [SignUpComponent],
   // providers: [SignUpService],

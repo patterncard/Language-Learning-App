@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 // import { SignUpService } from './sign-up.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
@@ -19,12 +20,16 @@ export class SignUpComponent {
 
   // ngOnInit() { }
 
+  username = new FormControl('');
+  email = new FormControl('');
+  password = new FormControl('');
+
   signUp() {
     this.httpClient
       .post('http://localhost:1337/api/auth/local/register', {
-        email: 'a@a.com',
-        username: 'qqwwewe',
-        password: 'asdasdasdqwe',
+        username: this.username.value,
+        email: this.email.value,
+        password: this.password.value,
       })
       .subscribe(
         (x) => {
@@ -33,8 +38,6 @@ export class SignUpComponent {
         (qweqweqwewy) => {
           console.log(qweqweqwewy);
         }
-
-        
       );
   }
 }
