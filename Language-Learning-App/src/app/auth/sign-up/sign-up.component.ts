@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-// import { SignUpService } from './sign-up.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 
@@ -12,7 +11,6 @@ import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 })
 export class SignUpComponent {
   constructor(
-    // private productService: SignUpService,
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig,
     private httpClient: HttpClient

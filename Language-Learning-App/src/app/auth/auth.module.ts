@@ -5,21 +5,12 @@ import { AuthComponent } from './auth.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { ToastModule } from 'primeng/toast';
 import { TableModule } from 'primeng/table';
-
-import { BrowserModule } from '@angular/platform-browser';
-import {
-  BrowserAnimationsModule,
-  NoopAnimationsModule,
-} from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-// import { SignUpService } from './sign-up/sign-up.service';
-import { DialogModule } from 'primeng/dialog';
-import { MessageService } from 'primeng/api';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AuthComponent, SignUpComponent],
   imports: [
@@ -35,6 +26,5 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
   ],
   entryComponents: [SignUpComponent],
-  // providers: [SignUpService],
 })
 export class AuthModule {}

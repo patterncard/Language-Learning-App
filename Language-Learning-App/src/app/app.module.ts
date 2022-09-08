@@ -7,7 +7,6 @@ import { DialogService } from 'primeng/dynamicdialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { SignUpService } from './auth/sign-up/sign-up.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +16,6 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  // providers: [DialogService, MessageService, SignUpService],
   providers: [DialogService, MessageService],
   bootstrap: [AppComponent],
 })
