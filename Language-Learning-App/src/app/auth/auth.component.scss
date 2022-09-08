@@ -1,4 +1,81 @@
-.auth {
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v8_12 {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  vertical-align: auto;
+  align-items: center;
+  width: 100%;
+  height: 980px;
+  opacity: 1;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v15_6 {
+  width: 731px;
+  color: rgba(146, 231, 94, 1);
+  top: 71px;
+  left: 354px;
+  margin-top: 71px;
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 48px;
+  opacity: 1;
+  text-align: left;
+}
+.v15_7 {
+  width: 242px;
+  color: rgba(51, 51, 51, 1);
+  top: 177px;
+  left: 598px;
+  margin-top: 48px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+.name {
+  color: #fff;
+}
+.auth {
+  &-container {
+    padding: 29px;
+    margin-top: 48px;
+    background-color: #fff;
+    border-radius: 5%;
+  }
+  &-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    &__username {
+      color: #c7c7c7;
+    }
+    &__line {
+      width: 100%;
+      border-top: 1px solid #c7c7c7;
+      margin: 12px 0;
+    }
+    &__username,
+    &__password {
+      margin-bottom: 12px;
+    }
+    &__button {
+      &-login {
+        background-color: #93e85f;
+        border: #93e85f;
+      }
+      &-sign {
+        background-color: #5fb6e8;
+        border: #5fb6e8;
+      }
+    }
+  }
 }

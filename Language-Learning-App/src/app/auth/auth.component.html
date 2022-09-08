@@ -1,1 +1,36 @@
-<div class="auth">login panel</div>
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+	<link href="./auth.component.scss" rel="stylesheet" />
+	<title>Document</title>
+	<link href="./auth.component.scss" rel="stylesheet" />
+	<title>Document</title>
+	<link href="./auth.component.scss" rel=" stylesheet" />
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="v8_12">
+		<span class="v15_6">Language Learning
+			Application</span>
+		<span class="v15_7">Enjoy learning and compete with friends</span>
+		<div class="auth-container">
+			<form class="auth-form p-inputtext-lg p-button-lg">
+				<input class="auth-form__username " placeholder="Username" [formControl]="username" type="text"
+					pInputText>
+				<input class="auth-form__password " placeholder="Password" [formControl]="password" type="text"
+					pInputText>
+				<button class="auth-form__button-login p-button-lg" type="button" (click)="logIn()" pButton>Log
+					In</button>
+				<hr class=" auth-form__line">
+				<button class="auth-form__button-sign p-button-lg" type="button" (click)="showSignUp()" pButton>Sign
+					Up</button>
+			</form>
+		</div>
+		<div class="name"></div>
+	</div>
+</body>
+<router-outlet></router-outlet>
+
+</html>

@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.name {
+  color: #fff;
+}
+.auth {
+  &-container {
+    padding: 5px 29px 29px 29px;
+    background-color: #fff;
+    border-radius: 5%;
+  }
+  &-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    &__username {
+      color: #c7c7c7;
+    }
+    &__username,
+    &__email,
+    &__password {
+      margin-bottom: 12px;
+    }
+    &__button {
+      &-sign {
+        background-color: #5fb6e8;
+        border: #5fb6e8;
+      }
+    }
+  }
+}
