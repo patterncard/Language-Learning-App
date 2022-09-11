@@ -77,16 +77,11 @@
 		flex-direction: column;
 	}
 	&__username {
-        display: flex;
-        justify-content: center;
-        
-		width: 100px;
-		height: 100px;
+		display: flex;
+		justify-content: center;
+		height: 50px;
 	}
 	&__name {
-		align-self: auto;
-
-
 		font-family: "Inter";
 		font-style: normal;
 		font-weight: 700;
@@ -96,9 +91,98 @@
 		color: #373737;
 	}
 	&__achievements {
+		display: flex;
 		width: 100px;
-		height: 100px;
-		background-color: #4864d8;
+		height: 100%;
+	}
+	&__level,
+	&__coins {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-left: 60px;
+	}
+	&__level-icon {
+		width: 45px;
+		height: 47px;
+	}
+	&__level-text {
+		width: 137px;
+		left: 59px;
+		top: 23px;
+	}
+	&__coins-icon {
+		width: 45px;
+		height: 45px;
+	}
+	&__coins-text {
+		width: 65px;
+		left: 30px;
+		top: 3px;
+	}
+	&__level-text,
+	&__coins-text {
+		display: flex;
+		margin-left: 10px;
+		width: 137px;
+		left: 59px;
+		top: 23px;
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 26px;
+		text-align: center;
+		color: #959595;
+	}
+
+	&__points {
+		align-items: center;
+		&__number-cointainer {
+			align-items: flex-end;
+		}
+		&__number-cointainer,
+		&__next-container {
+			display: flex;
+			flex-direction: column;
+			// align-items: center; //ok, ale nie tu bo wywala flex-end
+			width: 100%;
+		}
+		// &__number-cointainer2 {
+		// 	align-items: center;
+        //     align-items: flex-end;
+		// }
+		&__number,
+		&__next {
+			display: flex;
+			width: 155px;
+			height: 39px;
+			left: 47px;
+			top: 1px;
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 26px;
+			text-align: center;
+			color: #959595;
+		}
+
+		&__number-text,
+		&__next-text {
+			display: flex;
+			width: 214px;
+			height: 39px;
+			left: 18px;
+			top: 40px;
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 26px;
+			text-align: center;
+			color: #959595;
+		}
 	}
 
 	&__action {
