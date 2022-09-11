@@ -48,7 +48,6 @@
 	}
 	&__data {
 		padding: 30px 70px 0 70px;
-		// gap: 100px;
 		flex-grow: 1;
 	}
 	&__data,
@@ -145,13 +144,8 @@
 		&__next-container {
 			display: flex;
 			flex-direction: column;
-			// align-items: center; //ok, ale nie tu bo wywala flex-end
 			width: 100%;
 		}
-		// &__number-cointainer2 {
-		// 	align-items: center;
-        //     align-items: flex-end;
-		// }
 		&__number,
 		&__next {
 			display: flex;
