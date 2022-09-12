@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'home',
@@ -8,8 +9,20 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class HomeComponent {
 	// export class HomeComponent implements OnInit, OnDestroy {
 
-	constructor() {}
+	constructor(private router: Router) {}
 
 	// ngOnInit() {}
 	// ngOnDestroy() {}
+
+	play() {
+		this.router.navigateByUrl('/categories');
+	}
+
+	checkHighScore() {
+		this.router.navigateByUrl('/highscore');
+	}
+
+	settings() {
+		this.router.navigateByUrl('/settings');
+	}
 }
