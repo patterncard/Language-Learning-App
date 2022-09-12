@@ -186,6 +186,49 @@
 		top: 478px;
 		background: #ffffff;
 		border-radius: 50px;
+		display: flex;
+		justify-content: space-around;
+		align-items: flex-start;
+		&__highscore-text,
+		&__play-text,
+		&__settings-text {
+			display: flex;
+			justify-content: center;
+			width: 155px;
+			height: 52px;
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 26px;
+			text-align: center;
+			color: #373737;
+		}
+		&__highscore-icon {
+			width: 90px;
+		}
+		&__play-icon {
+			width: 100px;
+			margin-bottom: 10px;
+		}
+		&__settings-icon {
+			width: 70px;
+			margin-bottom: 10px;
+		}
+		&__play {
+			margin-top: 80px;
+		}
+		&__highscore {
+			margin-top: 200px;
+		}
+		&__settings {
+			margin-top: 210px;
+		}
+		button {
+			padding: 0;
+			border: 0;
+			background-color: white;
+		}
 	}
 
 	&__top-bar,
