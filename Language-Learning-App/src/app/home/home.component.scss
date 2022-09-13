@@ -1,0 +1,240 @@
+.home {
+	display: flex;
+	flex-direction: column;
+	vertical-align: auto;
+	align-items: center;
+	width: 100%;
+	height: 980px;
+	&__top-bar {
+		display: flex;
+		width: 700px;
+		height: 100px;
+		left: 370px;
+		top: 0px;
+		background: #93e85f;
+		border-radius: 0px 0px 50px 50px;
+	}
+	&__title {
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+		width: 100%;
+		height: 30px;
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 26px;
+		text-align: center;
+		color: #ffffff;
+	}
+	&__profile {
+		display: flex;
+		flex-direction: column;
+		width: 700px;
+		height: 300px;
+		left: 370px;
+		top: 130px;
+		background: #ffffff;
+		border-radius: 50px;
+		.horizontal {
+			display: flex;
+			align-self: center;
+			width: 560px;
+			height: 0px;
+			border: 1px solid #eeeeee;
+			margin: 0;
+		}
+	}
+	&__data {
+		padding: 30px 70px 0 70px;
+		flex-grow: 1;
+	}
+	&__data,
+	&__points {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		.vertical {
+			transform: rotate(90deg);
+			display: flex;
+			align-self: center;
+			width: 100px;
+			height: 0px;
+			border: 1px solid #eeeeee;
+		}
+	}
+	&__avatar {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+	}
+	&__scores {
+		width: 400px;
+		height: 120px;
+		display: flex;
+		flex-direction: column;
+	}
+	&__username {
+		display: flex;
+		justify-content: center;
+		height: 50px;
+	}
+	&__name {
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 26px;
+		text-align: center;
+		color: #373737;
+	}
+	&__achievements {
+		display: flex;
+		width: 100px;
+		height: 100%;
+	}
+	&__level,
+	&__coins {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-left: 60px;
+	}
+	&__level-icon {
+		width: 45px;
+		height: 47px;
+	}
+	&__level-text {
+		width: 137px;
+		left: 59px;
+		top: 23px;
+	}
+	&__coins-icon {
+		width: 45px;
+		height: 45px;
+	}
+	&__coins-text {
+		width: 65px;
+		left: 30px;
+		top: 3px;
+	}
+	&__level-text,
+	&__coins-text {
+		display: flex;
+		margin-left: 10px;
+		width: 137px;
+		left: 59px;
+		top: 23px;
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 26px;
+		text-align: center;
+		color: #959595;
+	}
+
+	&__points {
+		align-items: center;
+		&__number-cointainer {
+			align-items: flex-end;
+		}
+		&__number-cointainer,
+		&__next-container {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+		}
+		&__number,
+		&__next {
+			display: flex;
+			width: 155px;
+			height: 39px;
+			left: 47px;
+			top: 1px;
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 26px;
+			text-align: center;
+			color: #959595;
+		}
+
+		&__number-text,
+		&__next-text {
+			display: flex;
+			width: 214px;
+			height: 39px;
+			left: 18px;
+			top: 40px;
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 26px;
+			text-align: center;
+			color: #959595;
+		}
+	}
+
+	&__action {
+		width: 700px;
+		height: 430px;
+		left: 370px;
+		top: 478px;
+		background: #ffffff;
+		border-radius: 50px;
+		display: flex;
+		justify-content: space-around;
+		align-items: flex-start;
+		&__highscore-text,
+		&__play-text,
+		&__settings-text {
+			display: flex;
+			justify-content: center;
+			width: 155px;
+			height: 52px;
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 26px;
+			text-align: center;
+			color: #373737;
+		}
+		&__highscore-icon {
+			width: 90px;
+		}
+		&__play-icon {
+			width: 100px;
+			margin-bottom: 10px;
+		}
+		&__settings-icon {
+			width: 70px;
+			margin-bottom: 10px;
+		}
+		&__play {
+			margin-top: 80px;
+		}
+		&__highscore {
+			margin-top: 200px;
+		}
+		&__settings {
+			margin-top: 210px;
+		}
+		button {
+			padding: 0;
+			border: 0;
+			background-color: white;
+			cursor: pointer;
+		}
+	}
+
+	&__top-bar,
+	&__profile,
+	&__action {
+		margin-bottom: 30px;
+	}
+}

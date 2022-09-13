@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 	templateUrl: './auth.component.html',
 	styleUrls: ['./auth.component.scss'],
 })
-export class AuthComponent implements OnDestroy{
+export class AuthComponent implements OnDestroy {
 	constructor(
 		public dialogService: DialogService,
 		public messageService: MessageService,
