@@ -19,16 +19,16 @@
                 </div>
                 <div class="home__scores">
                     <div class="home__username">
-                        <span class="home__name">Username</span>
+                        <span class="home__name">{{username}}</span>
                     </div>
                     <div class="home__achievements">
                         <div class="home__level">
                             <img class="home__level-icon" src="./../../assets/img/v143_44.png" alt="level">
-                            <span class="home__level-text">Level 1</span>
+                            <span class="home__level-text">{{level}}</span>
                         </div>
                         <div class="home__coins">
                             <img class="home__coins-icon" src="./../../assets/img/v107_44.png" alt="coins">
-                            <span class="home__coins-text">10</span>
+                            <span class="home__coins-text">{{coins}}</span>
                         </div>
                     </div>
                 </div>
@@ -37,14 +37,14 @@
             <div class="home__points">
                 <div class="home__points__number-cointainer">
                     <div class="home__points__number-cointainer2">
-                        <span class="home__points__number">200</span>
+                        <span class="home__points__number">{{points}}</span>
                         <span class="home__points__number-text">YOUR POINTS</span>
                     </div>
                 </div>
                 <hr class="vertical">
                 <div class="home__points__next-container">
                     <div class="home__points__next-cointainer2">
-                        <span class="home__points__next">800</span>
+                        <span class="home__points__next">{{pointsUntilNext}}</span>
                         <span class="home__points__next-text">UNTIL NEXT LEVEL</span>
                     </div>
                 </div>
@@ -56,25 +56,21 @@
                     <img class="home__action__highscore-icon" src="./../../assets/img/v114_38.png" alt="">
                     <span class="home__action__highscore-text">Highscore table</span>
                 </button>
-
             </div>
             <div class="home__action__play">
                 <button (click)="play()">
                     <img class="home__action__play-icon" src="./../../assets/img/v112_34.png" alt="">
                     <span class="home__action__play-text">PLAY</span>
                 </button>
-
             </div>
             <div class="home__action__settings">
                 <button (click)="settings()">
                     <img class="home__action__settings-icon" src="./../../assets/img/v115_40.png" alt="">
                     <span class="home__action__settings-text">Settings</span>
                 </button>
-
             </div>
         </div>
     </div>
 </body>
-<!-- <router-outlet></router-outlet> -->
 
 </html>
