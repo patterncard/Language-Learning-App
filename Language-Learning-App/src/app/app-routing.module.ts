@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { CategoriesRoutingModule } from './categories/categories-routing.module';
+import { GameRoutingModule } from './game/game-routing.module';
 import { HighscoreRoutingModule } from './highscore/highscore-routing.module';
 import { HomeRoutingModule } from './home/home-routing.module';
 import { SettingsRoutingModule } from './settings/settings-routing.module';
@@ -34,9 +35,12 @@ const routes: Routes = [
 	{
 		path: 'settings',
 		loadChildren: () =>
-			import('./settings/settings.module').then(
-				(m) => m.SettingsModule
-			),
+			import('./settings/settings.module').then((m) => m.SettingsModule),
+	},
+	{
+		path: 'game',
+		loadChildren: () =>
+			import('./game/game.module').then((m) => m.GameModule),
 	},
 ];
 
@@ -48,6 +52,7 @@ const routes: Routes = [
 		CategoriesRoutingModule,
 		HighscoreRoutingModule,
 		SettingsRoutingModule,
+		GameRoutingModule
 	],
 	exports: [RouterModule],
 })

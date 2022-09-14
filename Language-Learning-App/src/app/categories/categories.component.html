@@ -1,1 +1,16 @@
-cattegoories :DDD
+<div class="categories">
+    <div class="categories__top-bar">
+        <button class="categories__go-back" (click)="goBackHome()">
+            <img src="./../../assets/img/arrowhead.png" alt="">
+        </button>
+        <span class="categories__title">Categories</span>
+    </div>
+    <div class="categories__container">
+        <button *ngFor="let category of categoriesList" class="categories__tile" (click)="selectCategory()">
+            <div class="categories__tile__title">{{ category.name }}</div>
+            <div class="categories__tile__belt">
+                <div class="categories__tile__belt-title">PLAY</div>
+            </div>
+        </button>
+    </div>
+</div>

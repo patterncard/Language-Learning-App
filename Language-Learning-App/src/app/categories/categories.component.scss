@@ -1,0 +1,117 @@
+.categories {
+	display: flex;
+	flex-direction: column;
+	vertical-align: auto;
+	align-items: center;
+	width: 100%;
+	height: 980px;
+	&__top-bar {
+		display: flex;
+		width: 700px;
+		height: 100px;
+		left: 370px;
+		top: 0px;
+		background: #93e85f;
+		border-radius: 0px 0px 50px 50px;
+	}
+	&__top-bar {
+		margin-bottom: 30px;
+	}
+	&__title {
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+		width: 100%;
+		height: 30px;
+		margin-right: 35px;
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 26px;
+		text-align: center;
+		color: #ffffff;
+	}
+	&__go-back {
+		display: flex;
+		align-self: center;
+		padding: 0;
+		border: 0;
+		margin-left: 35px;
+		background-color: transparent;
+		cursor: pointer;
+	}
+
+	&__container {
+		width: 600px;
+		height: 800px;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		button {
+			padding: 0;
+			border: 0;
+			cursor: pointer;
+			box-shadow: 5px 5px 20px 5px #a4afa2;
+		}
+	}
+
+	&__tile {
+		width: 250px;
+		height: 250px;
+		margin-left: 35px;
+		margin-bottom: 35px;
+		background: hsl(55, 10, 80);
+		border-radius: 30px;
+		&__title {
+			display: flex;
+			justify-content: center;
+			margin-top: 15px;
+			height: 52px;
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 26px;
+			text-align: center;
+			color: #ffffff;
+		}
+		&__belt {
+			background-color: #ffffff;
+			color: #5e5e5e;
+			width: 250px;
+			height: 50px;
+			margin-top: 30px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&__belt-title {
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 300;
+			font-size: 24px;
+			line-height: 26px;
+			text-align: center;
+			color: #5e5e5e;
+		}
+	}
+	&__tile:nth-child(6n + 1) {
+		background-color: #d84864;
+	}
+	&__tile:nth-child(6n + 2) {
+		background-color: #607ae4;
+	}
+	&__tile:nth-child(6n + 3) {
+		background-color: #64d848;
+	}
+	&__tile:nth-child(6n + 4) {
+		background-color: #bc48d8;
+	}
+	&__tile:nth-child(6n + 5) {
+		background-color: #e2e540;
+	}
+	&__tile:nth-child(6n + 6) {
+		background-color: #48d8cf;
+	}
+}
