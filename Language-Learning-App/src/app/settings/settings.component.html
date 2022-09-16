@@ -1,1 +1,22 @@
-setting settings
+<div class="settings">
+    <div class="settings__top-bar">
+        <button class="settings__go-back" (click)="goBackHome()">
+            <img src="./../../assets/img/arrowhead.png" alt="">
+        </button>
+        <span class="settings__title">Settings</span>
+    </div>
+    <div class="settings__container">
+        <div class="settings__module">
+            <span class="settings__header">GAME PROFILE</span>
+            <button class="settings__button" (click)="goToChangePicture()">
+                <span class="settings__button_title">Change profile picture</span>
+            </button>
+        </div>
+        <div class="settings__module">
+            <span class="settings__header">INFO</span>
+            <button class="settings__button" (click)="goToCoinsInfo()">
+                <span class="settings__button_title">How to earn coins?</span>
+            </button>
+        </div>
+    </div>
+</div>
