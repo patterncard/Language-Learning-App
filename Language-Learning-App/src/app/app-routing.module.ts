@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { CategoriesRoutingModule } from './categories/categories-routing.module';
+import { CoinsRoutingModule } from './coins/coins-routing.module';
 import { GameRoutingModule } from './game/game-routing.module';
 import { HighscoreRoutingModule } from './highscore/highscore-routing.module';
 import { HomeRoutingModule } from './home/home-routing.module';
+import { PictureRoutingModule } from './picture/picture-routing.module';
+import { PictureModule } from './picture/picture.module';
 import { SettingsRoutingModule } from './settings/settings-routing.module';
 
 const routes: Routes = [
@@ -42,6 +45,16 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./game/game.module').then((m) => m.GameModule),
 	},
+	{
+		path: 'picture',
+		loadChildren: () =>
+			import('./picture/picture.module').then((m) => m.PictureModule),
+	},
+	{
+		path: 'coins',
+		loadChildren: () =>
+			import('./coins/coins.module').then((m) => m.CoinsModule),
+	},
 ];
 
 @NgModule({
@@ -52,7 +65,9 @@ const routes: Routes = [
 		CategoriesRoutingModule,
 		HighscoreRoutingModule,
 		SettingsRoutingModule,
-		GameRoutingModule
+		GameRoutingModule,
+		PictureRoutingModule,
+		CoinsRoutingModule,
 	],
 	exports: [RouterModule],
 })
