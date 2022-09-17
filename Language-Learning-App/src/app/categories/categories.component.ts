@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 	styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent {
-    selectedCategory = ''
+	selectedCategory = '';
 	constructor(private router: Router) {}
 
 	categoriesList = [
@@ -51,6 +51,6 @@ export class CategoriesComponent {
 
 	selectCategory() {
 		// this.selectedCategory = this.categoriesList.
-        this.router.navigateByUrl('/game');
+		this.router.navigateByUrl('/game');
 	}
 }
