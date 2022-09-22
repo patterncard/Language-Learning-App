@@ -3,6 +3,34 @@
         <button class="flashcard__go-back" (click)="goBackHome()">
             <img src="./../../assets/img/arrowhead.png" alt="">
         </button>
-        <span class="flashcard__title">Flashcard</span>
+        <span class="flashcard__title">Flashcards</span>
+    </div>
+    <div class="flashcard__container">
+        <div class="flashcard__content">
+            <div class="flashcard__displayed-word">Word in native</div>
+            <div class="flashcard__feedback">
+                <div *ngIf="isChecked">
+                    <div *ngIf="isCorrectAnswear; else incorrect" class="correct">correct</div>
+                    <ng-template #incorrect>
+                        <div class="incorrect">incorrect</div>
+                    </ng-template>
+                </div>
+            </div>
+            <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
+                class="flashcard__input p-inputtext-lg" />
+            <div>
+                <div *ngIf="!isChecked; else next">
+                    <button pButton pRipple type="button" label="Check"
+                        class="flashcard__button p-button-rounded p-button-lg p-button-raised"
+                        (click)="checkAnswear()"></button>
+                </div>
+                <ng-template #next>
+                    <button pButton pRipple type="button" label="Next"
+                        class="flashcard__button p-button-rounded p-button-lg p-button-raised"
+                        (click)="nextFlashcard()"></button>
+                </ng-template>
+            </div>
+
+        </div>
     </div>
 </div>
