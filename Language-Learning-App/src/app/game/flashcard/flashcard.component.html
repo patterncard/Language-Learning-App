@@ -7,7 +7,7 @@
     </div>
     <div class="flashcard__container">
         <div class="flashcard__content">
-            <div class="flashcard__displayed-word">Word in native</div>
+            <div class="flashcard__displayed-word">{{word}}</div>
             <div class="flashcard__feedback">
                 <div *ngIf="isChecked">
                     <div *ngIf="isCorrectAnswear; else incorrect" class="correct">correct</div>
