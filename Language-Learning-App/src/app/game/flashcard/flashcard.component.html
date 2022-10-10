@@ -16,9 +16,17 @@
                     </ng-template>
                 </div>
             </div>
-            <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
-                class="flashcard__input p-inputtext-lg" />
             <div>
+                <div *ngIf="!isChecked; else nextInput">
+                    <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
+                        class="flashcard__input p-inputtext-lg" [formControl]="enteredWord" />
+                </div>
+                <ng-template #nextInput>
+                    <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
+                        class="flashcard__input p-inputtext-lg" [formControl]="enteredWord" />
+                </ng-template>
+            </div>
+            <div class="flashcard__button-container">
                 <div *ngIf="!isChecked; else next">
                     <button pButton pRipple type="button" label="Check"
                         class="flashcard__button p-button-rounded p-button-lg p-button-raised"
@@ -30,7 +38,5 @@
                         (click)="nextFlashcard()"></button>
                 </ng-template>
             </div>
-
         </div>
     </div>
-</div>

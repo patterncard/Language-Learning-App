@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { GameService } from '../game.service';
@@ -18,12 +19,15 @@ export class FlashcardComponent implements OnInit {
 	isChecked = false;
 	isCorrectAnswear = false;
 	word = '';
+	enteredWord = new FormControl('');
+	randomWord = 0;
+	points = 0;
 
 	ngOnInit() {
+		console.log(this.isChecked);
 		this.primengConfig.ripple = true;
-		this.isCorrectAnswear = true;
-
-		this.word = this.gameService.words.food[0].en;
+		this.generateWord();
+		console.log(this.isChecked);
 	}
 
 	goBackHome() {
@@ -32,9 +36,34 @@ export class FlashcardComponent implements OnInit {
 
 	checkAnswear() {
 		this.isChecked = true;
+		console.log(this.word);
+		console.log(this.enteredWord.value);
+		if (
+			this.enteredWord.value ===
+			this.gameService.words.food[this.randomWord].pl
+		) {
+			this.isCorrectAnswear = true;
+			this.points += 10;
+			console.log(this.points);
+		} else {
+			this.isCorrectAnswear = false;
+		}
 	}
 
 	nextFlashcard() {
 		this.isChecked = false;
+		this.generateWord();
+		this.resetInput();
+	}
+
+	generateWord() {
+		this.randomWord = Math.floor(
+			Math.random() * this.gameService.words.food.length
+		);
+		this.word = this.gameService.words.food[this.randomWord].en;
+	}
+
+	resetInput() {
+		this.enteredWord = new FormControl('');
 	}
 }
