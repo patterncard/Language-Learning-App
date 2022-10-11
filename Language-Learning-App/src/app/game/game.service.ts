@@ -50,5 +50,55 @@ export class GameService {
 				pl: 'ryba',
 			},
 		],
+		home: [
+			{
+				en: 'room',
+				pl: 'pokój',
+			},
+			{
+				en: 'bedroom',
+				pl: 'sypialnia',
+			},
+			{
+				en: 'house',
+				pl: 'dom',
+			},
+			{
+				en: 'kitchen',
+				pl: 'kuchnia',
+			},
+			{
+				en: 'bathroom',
+				pl: 'łazienka',
+			},
+			{
+				en: 'bed',
+				pl: 'łóżko',
+			},
+			{
+				en: 'table',
+				pl: 'stół',
+			},
+			{
+				en: 'chair',
+				pl: 'krzesło',
+			},
+			{
+				en: 'living room',
+				pl: 'salon',
+			},
+			{
+				en: 'office',
+				pl: 'gabinet',
+			},
+		],
+		family: [],
+		animals: [],
+		clothes: [],
+		sports: [],
+		weather: [],
+		formality: [],
 	};
+
+	categories = Object.getOwnPropertyNames(this.words);
 }

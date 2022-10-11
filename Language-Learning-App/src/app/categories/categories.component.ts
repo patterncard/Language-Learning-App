@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { GameService } from '../game/game.service';
 
 @Component({
 	selector: 'categories',
@@ -7,50 +8,23 @@ import { Router } from '@angular/router';
 	styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent {
-	selectedCategory = '';
-	constructor(private router: Router) {}
+	// @Input() selectedCategory = '';
+	constructor(private router: Router, private gameService: GameService) {}
 
-	categoriesList = [
-		{
-			id: 0,
-			name: 'food',
-		},
-		{
-			id: 1,
-			name: 'home',
-		},
-		{
-			id: 2,
-			name: 'family',
-		},
-		{
-			id: 3,
-			name: 'animals',
-		},
-		{
-			id: 4,
-			name: 'clothes',
-		},
-		{
-			id: 5,
-			name: 'sports',
-		},
-		{
-			id: 6,
-			name: 'weather',
-		},
-		{
-			id: 7,
-			name: 'plants plants plants plants plants plants plants plants plants plants plants',
-		},
-	];
+	categoriesList = this.gameService.categories;
 
 	goBackHome() {
 		this.router.navigateByUrl('/home');
 	}
 
 	selectCategory() {
-		// this.selectedCategory = this.categoriesList.
-		this.router.navigateByUrl('/game');
+		// this.selectCategory =
+		// const selCat = document.getElementById('button');
+		// const selCat = document.getElementById('i')?.getAttribute('attr.value');
+		// console.log(selCat);
+
+		// console.log(this.selectedCategory);
+
+		this.router.navigateByUrl('/flashcard');
 	}
 }

@@ -7,7 +7,9 @@
     </div>
     <div class="categories__container">
         <button *ngFor="let category of categoriesList" class="categories__tile" (click)="selectCategory()">
-            <div class="categories__tile__title">{{ category.name }}</div>
+            <div class="categories__tile__title">{{ category }}</div>
+            <!-- <div class="categories__tile__title" [class.active]="category === selectedCategory"
+                (category)="selectedCategory" id="{{i}}" attr.value="{{ category }}">{{ category }}</div> -->
             <div class="categories__tile__belt">
                 <div class="categories__tile__belt-title">PLAY</div>
             </div>
