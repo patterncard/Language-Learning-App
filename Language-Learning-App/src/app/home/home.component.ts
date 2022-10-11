@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 	) {}
 
 	username = 'Username';
-	level = 0;
+	level = 1;
 	coins = 0;
 	points = 0;
 	@Input() pointsUntilNext = 0;

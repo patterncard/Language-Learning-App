@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 	providedIn: 'root',
 })
 export class AchievementsService {
-    constructor() {}
-    points = 0;
-    level = 0;
-    coins = 0;
+	constructor() {}
+	points = 0;
+	level = 1;
+	coins = 0;
 }

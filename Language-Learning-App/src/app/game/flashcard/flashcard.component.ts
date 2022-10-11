@@ -97,5 +97,8 @@ export class FlashcardComponent implements OnInit {
 
 	changeLanguage() {
 		this.isEnglishToPolish = true;
+		this.generateWord();
+		this.resetInput();
+		this.isChecked = false;
 	}
 }
