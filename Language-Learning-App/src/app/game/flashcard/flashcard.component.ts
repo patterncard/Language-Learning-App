@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
+import { AchievementsService } from 'src/app/home/achievements.service';
 import { GameService } from '../game.service';
 @Component({
 	selector: 'flashcard',
@@ -13,7 +14,8 @@ export class FlashcardComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private primengConfig: PrimeNGConfig,
-		private gameService: GameService
+		private gameService: GameService,
+		private achievements: AchievementsService
 	) {
 		this.languageOptions = [
 			{ name: 'EN->PL', language: 'en' },
@@ -32,10 +34,8 @@ export class FlashcardComponent implements OnInit {
 	isEnglishToPolish = false;
 
 	ngOnInit() {
-		console.log(this.isChecked);
 		this.primengConfig.ripple = true;
 		this.generateWord();
-		console.log(this.isChecked);
 		this.selectedLanguage = this.languageOptions[0];
 	}
 
@@ -54,6 +54,7 @@ export class FlashcardComponent implements OnInit {
 			) {
 				this.isCorrectAnswear = true;
 				this.points += 10;
+				this.achievements.points = this.points;
 				console.log(this.points);
 			} else {
 				this.isCorrectAnswear = false;
@@ -65,6 +66,7 @@ export class FlashcardComponent implements OnInit {
 			) {
 				this.isCorrectAnswear = true;
 				this.points += 10;
+				this.achievements.points = this.points;
 				console.log(this.points);
 			} else {
 				this.isCorrectAnswear = false;
