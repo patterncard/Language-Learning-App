@@ -14,7 +14,12 @@ export class FlashcardComponent implements OnInit {
 		private router: Router,
 		private primengConfig: PrimeNGConfig,
 		private gameService: GameService
-	) {}
+	) {
+		this.languageOptions = [
+			{ name: 'EN->PL', language: 'en' },
+			{ name: 'PL->EN', language: 'pl' },
+		];
+	}
 
 	isChecked = false;
 	isCorrectAnswear = false;
@@ -22,12 +27,16 @@ export class FlashcardComponent implements OnInit {
 	enteredWord = new FormControl('');
 	randomWord = 0;
 	points = 0;
+	languageOptions: any[];
+	selectedLanguage = '';
+	isEnglishToPolish = false;
 
 	ngOnInit() {
 		console.log(this.isChecked);
 		this.primengConfig.ripple = true;
 		this.generateWord();
 		console.log(this.isChecked);
+		this.selectedLanguage = this.languageOptions[0];
 	}
 
 	goBackHome() {
@@ -38,15 +47,28 @@ export class FlashcardComponent implements OnInit {
 		this.isChecked = true;
 		console.log(this.word);
 		console.log(this.enteredWord.value);
-		if (
-			this.enteredWord.value ===
-			this.gameService.words.food[this.randomWord].pl
-		) {
-			this.isCorrectAnswear = true;
-			this.points += 10;
-			console.log(this.points);
+		if (!this.isEnglishToPolish) {
+			if (
+				this.enteredWord.value ===
+				this.gameService.words.food[this.randomWord].pl
+			) {
+				this.isCorrectAnswear = true;
+				this.points += 10;
+				console.log(this.points);
+			} else {
+				this.isCorrectAnswear = false;
+			}
 		} else {
-			this.isCorrectAnswear = false;
+			if (
+				this.enteredWord.value ===
+				this.gameService.words.food[this.randomWord].en
+			) {
+				this.isCorrectAnswear = true;
+				this.points += 10;
+				console.log(this.points);
+			} else {
+				this.isCorrectAnswear = false;
+			}
 		}
 	}
 
@@ -60,10 +82,18 @@ export class FlashcardComponent implements OnInit {
 		this.randomWord = Math.floor(
 			Math.random() * this.gameService.words.food.length
 		);
-		this.word = this.gameService.words.food[this.randomWord].en;
+		if (!this.isEnglishToPolish) {
+			this.word = this.gameService.words.food[this.randomWord].en;
+		} else {
+			this.word = this.gameService.words.food[this.randomWord].pl;
+		}
 	}
 
 	resetInput() {
 		this.enteredWord = new FormControl('');
+	}
+
+	changeLanguage() {
+		this.isEnglishToPolish = true;
 	}
 }

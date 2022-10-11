@@ -4,6 +4,11 @@
             <img src="./../../assets/img/arrowhead.png" alt="">
         </button>
         <span class="flashcard__title">Flashcards</span>
+        <div class="flashcard__switch">
+            <p-selectButton [options]="languageOptions" optionLabel="name" [(ngModel)]="selectedLanguage"
+                (click)="changeLanguage()">
+            </p-selectButton>
+        </div>
     </div>
     <div class="flashcard__container">
         <div class="flashcard__content">
