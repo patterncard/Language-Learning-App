@@ -1,0 +1,47 @@
+<div class="flashcard">
+    <div class="flashcard__top-bar">
+        <button class="flashcard__go-back" (click)="goBackHome()">
+            <img src="./../../assets/img/arrowhead.png" alt="">
+        </button>
+        <span class="flashcard__title">Flashcards</span>
+        <div class="flashcard__switch">
+            <p-selectButton [options]="languageOptions" optionLabel="name" [(ngModel)]="selectedLanguage"
+                (click)="changeLanguage()">
+            </p-selectButton>
+        </div>
+    </div>
+    <div class="flashcard__container">
+        <div class="flashcard__content">
+            <div class="flashcard__displayed-word">{{word}}</div>
+            <div class="flashcard__feedback">
+                <div *ngIf="isChecked">
+                    <div *ngIf="isCorrectAnswear; else incorrect" class="correct">correct</div>
+                    <ng-template #incorrect>
+                        <div class="incorrect">incorrect</div>
+                    </ng-template>
+                </div>
+            </div>
+            <div>
+                <div *ngIf="!isChecked; else nextInput">
+                    <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
+                        class="flashcard__input p-inputtext-lg" [formControl]="enteredWord" />
+                </div>
+                <ng-template #nextInput>
+                    <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
+                        class="flashcard__input p-inputtext-lg" [formControl]="enteredWord" />
+                </ng-template>
+            </div>
+            <div class="flashcard__button-container">
+                <div *ngIf="!isChecked; else next">
+                    <button pButton pRipple type="button" label="Check"
+                        class="flashcard__button p-button-rounded p-button-lg p-button-raised"
+                        (click)="checkAnswear()"></button>
+                </div>
+                <ng-template #next>
+                    <button pButton pRipple type="button" label="Next"
+                        class="flashcard__button p-button-rounded p-button-lg p-button-raised"
+                        (click)="nextFlashcard()"></button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
