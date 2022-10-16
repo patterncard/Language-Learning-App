@@ -50,7 +50,7 @@ export class FlashcardComponent implements OnInit {
 		if (!this.isEnglishToPolish) {
 			if (
 				this.enteredWord.value ===
-				this.gameService.words.food[this.randomWord].pl
+				this.gameService.selectedCategory[this.randomWord].pl
 			) {
 				this.isCorrectAnswear = true;
 				this.points += 10;
@@ -62,7 +62,7 @@ export class FlashcardComponent implements OnInit {
 		} else {
 			if (
 				this.enteredWord.value ===
-				this.gameService.words.food[this.randomWord].en
+				this.gameService.selectedCategory[this.randomWord].en
 			) {
 				this.isCorrectAnswear = true;
 				this.points += 10;
@@ -82,12 +82,12 @@ export class FlashcardComponent implements OnInit {
 
 	generateWord() {
 		this.randomWord = Math.floor(
-			Math.random() * this.gameService.words.food.length
+			Math.random() * this.gameService.selectedCategory.length
 		);
 		if (!this.isEnglishToPolish) {
-			this.word = this.gameService.words.food[this.randomWord].en;
+			this.word = this.gameService.selectedCategory[this.randomWord].en;
 		} else {
-			this.word = this.gameService.words.food[this.randomWord].pl;
+			this.word = this.gameService.selectedCategory[this.randomWord].pl;
 		}
 	}
 
@@ -97,6 +97,12 @@ export class FlashcardComponent implements OnInit {
 
 	changeLanguage() {
 		this.isEnglishToPolish = true;
+		// !this.isEnglishToPolish;
+		// if (this.selectedLanguage == this.languageOptions[0]) {
+		// 	this.selectedLanguage = this.languageOptions[1];
+		// } else {
+		// 	this.selectedLanguage = this.languageOptions[0];
+		// }
 		this.generateWord();
 		this.resetInput();
 		this.isChecked = false;

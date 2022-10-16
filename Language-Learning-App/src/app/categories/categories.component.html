@@ -6,10 +6,50 @@
         <span class="categories__title">Categories</span>
     </div>
     <div class="categories__container">
-        <button *ngFor="let category of categoriesList" class="categories__tile" (click)="selectCategory()">
-            <div class="categories__tile__title">{{ category }}</div>
-            <!-- <div class="categories__tile__title" [class.active]="category === selectedCategory"
-                (category)="selectedCategory" id="{{i}}" attr.value="{{ category }}">{{ category }}</div> -->
+        <button id="0" class="categories__tile" (click)="selectCategoryFood()">
+            <div class="categories__tile__title">Food</div>
+            <div class="categories__tile__belt">
+                <div class="categories__tile__belt-title">PLAY</div>
+            </div>
+        </button>
+        <button id="1" class="categories__tile" (click)="selectCategoryHome()">
+            <div class="categories__tile__title">Home</div>
+            <div class="categories__tile__belt">
+                <div class="categories__tile__belt-title">PLAY</div>
+            </div>
+        </button>
+        <button id="2" class="categories__tile" (click)="selectCategoryFamily()">
+            <div class="categories__tile__title">Family</div>
+            <div class="categories__tile__belt">
+                <div class="categories__tile__belt-title">PLAY</div>
+            </div>
+        </button>
+        <button id="3" class="categories__tile" (click)="selectCategoryAnimals()">
+            <div class="categories__tile__title">Animals</div>
+            <div class="categories__tile__belt">
+                <div class="categories__tile__belt-title">PLAY</div>
+            </div>
+        </button>
+        <button id="4" class="categories__tile" (click)="selectCategoryClothes()">
+            <div class="categories__tile__title">Clothes</div>
+            <div class="categories__tile__belt">
+                <div class="categories__tile__belt-title">PLAY</div>
+            </div>
+        </button>
+        <button id="5" class="categories__tile" (click)="selectCategorySports()">
+            <div class="categories__tile__title">Sports</div>
+            <div class="categories__tile__belt">
+                <div class="categories__tile__belt-title">PLAY</div>
+            </div>
+        </button>
+        <button id="6" class="categories__tile" (click)="selectCategoryWeather()">
+            <div class="categories__tile__title">Weather</div>
+            <div class="categories__tile__belt">
+                <div class="categories__tile__belt-title">PLAY</div>
+            </div>
+        </button>
+        <button id="7" class="categories__tile" (click)="selectCategoryFormality()">
+            <div class="categories__tile__title">Formality</div>
             <div class="categories__tile__belt">
                 <div class="categories__tile__belt-title">PLAY</div>
             </div>

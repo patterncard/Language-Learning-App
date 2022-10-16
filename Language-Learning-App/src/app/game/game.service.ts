@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class GameService {
-	constructor() { }
+	constructor() {}
+
+	selectedCategory: any;
 
 	words = {
 		food: [
@@ -92,7 +93,48 @@ export class GameService {
 				pl: 'gabinet',
 			},
 		],
-		family: [],
+		family: [
+			{
+				en: 'family',
+				pl: 'rodzina',
+			},
+			{
+				en: 'mom',
+				pl: 'mama',
+			},
+			{
+				en: 'dad',
+				pl: 'tata',
+			},
+			{
+				en: 'brother',
+				pl: 'brat',
+			},
+			{
+				en: 'sister',
+				pl: 'siostra',
+			},
+			{
+				en: 'daughter',
+				pl: 'córka',
+			},
+			{
+				en: 'child',
+				pl: 'dziecko',
+			},
+			{
+				en: 'children',
+				pl: 'dzieci',
+			},
+			{
+				en: 'grandma',
+				pl: 'babcia',
+			},
+			{
+				en: 'grandpa',
+				pl: 'dziadek',
+			},
+		],
 		animals: [],
 		clothes: [],
 		sports: [],
