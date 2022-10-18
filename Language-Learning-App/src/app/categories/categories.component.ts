@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../game/game.service';
+import { AchievementsService } from '../home/achievements.service';
 
 @Component({
 	selector: 'categories',
@@ -8,7 +9,17 @@ import { GameService } from '../game/game.service';
 	styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent {
-	constructor(private router: Router, private gameService: GameService) {}
+	constructor(
+		private router: Router,
+		private gameService: GameService,
+		private achievementsService: AchievementsService
+	) {}
+	coinsCost = 100;
+	unlocked1 = this.achievementsService.unlockedCategory1;
+	unlocked2 = this.achievementsService.unlockedCategory2;
+	unlocked3 = this.achievementsService.unlockedCategory3;
+	unlocked4 = this.achievementsService.unlockedCategory4;
+	unlocked5 = this.achievementsService.unlockedCategory5;
 
 	goBackHome() {
 		this.router.navigateByUrl('/home');

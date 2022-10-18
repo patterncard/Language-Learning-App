@@ -93,6 +93,29 @@
 			text-align: center;
 			color: #5e5e5e;
 		}
+		&__coins {
+			margin-top: 5px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 26px;
+			text-align: center;
+			color: rgb(223, 223, 223);
+
+			&__coins-icon {
+				width: 45px;
+				height: 45px;
+			}
+			&__coins-number {
+				margin-top: 10px;
+				margin-left: 5px;
+			}
+		}
 	}
 	&__tile:nth-child(6n + 1) {
 		background-color: #d84864;
@@ -101,15 +124,20 @@
 		background-color: #607ae4;
 	}
 	&__tile:nth-child(6n + 3) {
-		background-color: #64d848;
-	}
-	&__tile:nth-child(6n + 4) {
-		background-color: #bc48d8;
-	}
-	&__tile:nth-child(6n + 5) {
 		background-color: #e2e540;
 	}
-	&__tile:nth-child(6n + 6) {
+	&__tile:nth-child(6n + 4) {
 		background-color: #48d8cf;
 	}
+	&__tile:nth-child(6n + 5) {
+		background-color: #64d848;
+	}
+	&__tile:nth-child(6n + 6) {
+		background-color: #bc48d8;
+	}
 }
+
+.margin {
+	margin-top: 60px;
+}
+

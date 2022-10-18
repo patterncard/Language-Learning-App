@@ -12,37 +12,99 @@
                 <div class="categories__tile__belt-title">PLAY</div>
             </div>
         </button>
-        <button id="1" class="categories__tile" (click)="selectCategoryHome()">
+
+        <button *ngIf="!unlocked1; else play1" id="1" class="categories__tile">
             <div class="categories__tile__title">Home</div>
             <div class="categories__tile__belt">
-                <div class="categories__tile__belt-title">PLAY</div>
+                <div class="categories__tile__belt-title">LOCKED</div>
             </div>
         </button>
-        <button id="2" class="categories__tile" (click)="selectCategoryFamily()">
+        <ng-template #play1>
+            <button id="1" class="categories__tile" (click)="selectCategoryHome()">
+                <div class="categories__tile__title">Home</div>
+                <div class="categories__tile__belt">
+                    <div class="categories__tile__belt-title">PLAY</div>
+                </div>
+            </button>
+        </ng-template>
+
+        <button *ngIf="!unlocked2; else play2" id="2" class="categories__tile">
             <div class="categories__tile__title">Family</div>
             <div class="categories__tile__belt">
-                <div class="categories__tile__belt-title">PLAY</div>
+                <div class="categories__tile__belt-title">LOCKED</div>
             </div>
         </button>
-        <button id="3" class="categories__tile" (click)="selectCategoryAnimals()">
+        <ng-template #play2>
+            <button id="2" class="categories__tile" (click)="selectCategoryFamily()">
+                <div class="categories__tile__title">Family</div>
+                <div class="categories__tile__belt">
+                    <div class="categories__tile__belt-title">PLAY</div>
+                </div>
+            </button>
+        </ng-template>
+
+        <button *ngIf="!unlocked3; else play3" id="3" class="categories__tile">
             <div class="categories__tile__title">Animals</div>
             <div class="categories__tile__belt">
-                <div class="categories__tile__belt-title">PLAY</div>
+                <div class="categories__tile__belt-title">LOCKED</div>
             </div>
         </button>
-        <button id="6" class="categories__tile" (click)="selectCategoryHomophones()">
+        <ng-template #play3>
+            <button id="3" class="categories__tile" (click)="selectCategoryAnimals()">
+                <div class="categories__tile__title">Animals</div>
+                <div class="categories__tile__belt">
+                    <div class="categories__tile__belt-title">PLAY</div>
+                </div>
+            </button>
+        </ng-template>
+
+        <button *ngIf="!unlocked4; else play4" id="4" class="categories__tile">
+            <div class="margin">
+            </div>
+            <ng-template #noMargin></ng-template>
             <div class="categories__tile__title">Extra: Homophones</div>
             <div class="categories__tile__belt">
-                <div class="categories__tile__belt-title">PLAY</div>
+                <div class="categories__tile__belt-title">LOCKED</div>
             </div>
+            <div *ngIf="!unlocked4; else noCoins" class="categories__tile__coins">
+                <img class="categories__tile__coins__coins-icon" src="./../../assets/img/v107_44.png" alt="coins">
+                <div class="categories__tile__coins__coins-number">{{ coinsCost }}</div>
+            </div>
+            <ng-template #noCoins></ng-template>
         </button>
-        <button id="5" class="categories__tile" (click)="selectCategoryTransitionWords()">
-            <div class="categories__tile__title">Extra: Transition Words</div>
+        <ng-template #play4>
+            <button id="4" class="categories__tile" (click)="selectCategoryHomophones()">
+                <div class="categories__tile__title">Extra: Homophones</div>
+                <div class="categories__tile__belt">
+                    <div class="categories__tile__belt-title">PLAY</div>
+                </div>
+            </button>
+        </ng-template>
+
+        <button *ngIf="!unlocked5; else play5" id="5" class="categories__tile">
+            <div class="margin">
+            </div>
+            <ng-template #noMargin></ng-template>
+            <div class="categories__tile__title">Extra: TransitionWords</div>
             <div class="categories__tile__belt">
-                <div class="categories__tile__belt-title">PLAY</div>
+                <div class="categories__tile__belt-title">LOCKED</div>
             </div>
+            <div *ngIf="!unlocked5; else noCoins" class="categories__tile__coins">
+                <img class="categories__tile__coins__coins-icon" src="./../../assets/img/v107_44.png" alt="coins">
+                <div class="categories__tile__coins__coins-number">{{ coinsCost }}</div>
+            </div>
+            <ng-template #noCoins></ng-template>
         </button>
-        <button id="7" class="categories__tile" (click)="selectCategoryFormality()">
+        <ng-template #play5>
+            <button id="5" class="categories__tile" (click)="selectCategoryTransitionWords()">
+                <div class="categories__tile__title">Extra: Homophones</div>
+                <div class="categories__tile__belt">
+                    <div class="categories__tile__belt-title">PLAY</div>
+                </div>
+            </button>
+        </ng-template>
+
+        <button id="6" class="categories__tile" (click)="selectCategoryFormality()">
             <div class="categories__tile__title">Extra: Formality</div>
             <div class="categories__tile__belt">
                 <div class="categories__tile__belt-title">PLAY</div>
