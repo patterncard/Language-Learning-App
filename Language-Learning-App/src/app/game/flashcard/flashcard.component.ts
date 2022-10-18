@@ -58,6 +58,9 @@ export class FlashcardComponent implements OnInit {
 				console.log(this.points);
 			} else {
 				this.isCorrectAnswear = false;
+				console.log(
+					this.gameService.selectedCategory[this.randomWord].pl
+				);
 			}
 		} else {
 			if (
@@ -70,6 +73,9 @@ export class FlashcardComponent implements OnInit {
 				console.log(this.points);
 			} else {
 				this.isCorrectAnswear = false;
+				console.log(
+					this.gameService.selectedCategory[this.randomWord].en
+				);
 			}
 		}
 	}

@@ -34,18 +34,13 @@ export class CategoriesComponent {
 		this.router.navigateByUrl('/flashcard');
 	}
 
-	selectCategoryClothes() {
-		this.gameService.selectedCategory = this.gameService.words.clothes;
+	selectCategoryHomophones() {
+		this.gameService.selectedCategory = this.gameService.words.homophones;
 		this.router.navigateByUrl('/flashcard');
 	}
-	
-	selectCategorySports() {
-		this.gameService.selectedCategory = this.gameService.words.sports;
-		this.router.navigateByUrl('/flashcard');
-	}
-	
-	selectCategoryWeather() {
-		this.gameService.selectedCategory = this.gameService.words.weather;
+
+	selectCategoryTransitionWords() {
+		this.gameService.selectedCategory = this.gameService.words.transition;
 		this.router.navigateByUrl('/flashcard');
 	}
 
