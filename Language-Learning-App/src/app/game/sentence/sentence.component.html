@@ -1,0 +1,42 @@
+<div class="sentence">
+    <div class="sentence__top-bar">
+        <button class="sentence__go-back" (click)="goBackHome()">
+            <img src="./../../assets/img/arrowhead.png" alt="">
+        </button>
+        <span class="sentence__title">Fill sentence</span>
+    </div>
+    <div class="sentence__container">
+        <div class="sentence__content">
+            <div class="sentence__displayed-word">{{word}}</div>
+            <div class="sentence__feedback">
+                <div *ngIf="isChecked">
+                    <div *ngIf="isCorrectAnswear; else incorrect" class="correct">correct</div>
+                    <ng-template #incorrect>
+                        <div class="incorrect">incorrect</div>
+                    </ng-template>
+                </div>
+            </div>
+            <div>
+                <div *ngIf="!isChecked; else nextInput">
+                    <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
+                        class="sentence__input p-inputtext-lg" [formControl]="enteredWord" />
+                </div>
+                <ng-template #nextInput>
+                    <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
+                        class="sentence__input p-inputtext-lg" [formControl]="enteredWord" />
+                </ng-template>
+            </div>
+            <div class="sentence__button-container">
+                <div *ngIf="!isChecked; else next">
+                    <button pButton pRipple type="button" label="Check"
+                        class="sentence__button p-button-rounded p-button-lg p-button-raised"
+                        (click)="checkAnswear()"></button>
+                </div>
+                <ng-template #next>
+                    <button pButton pRipple type="button" label="Next"
+                        class="sentence__button p-button-rounded p-button-lg p-button-raised"
+                        (click)="nextSentence()"></button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
