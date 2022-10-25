@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 	ngOnDestroy() {}
 
 	play() {
-		this.router.navigateByUrl('/categories');
+		this.router.navigateByUrl('/game');
 	}
 
 	checkHighScore() {

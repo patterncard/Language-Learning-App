@@ -25,38 +25,50 @@ export class CategoriesComponent {
 		this.router.navigateByUrl('/home');
 	}
 
+	goToGame() {
+		const selectedGameRoutes = this.gameService.selectedGameRoutes;
+		this.router.navigateByUrl(`/${selectedGameRoutes}`);
+	}
+
 	selectCategoryFood() {
-		this.gameService.selectedCategory = this.gameService.words.food;
-		this.router.navigateByUrl('/flashcard');
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.food;
+		this.goToGame();
 	}
 
 	selectCategoryHome() {
-		this.gameService.selectedCategory = this.gameService.words.home;
-		this.router.navigateByUrl('/flashcard');
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.home;
+		this.goToGame();
 	}
 
 	selectCategoryFamily() {
-		this.gameService.selectedCategory = this.gameService.words.family;
-		this.router.navigateByUrl('/flashcard');
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.family;
+		this.goToGame();
 	}
 
 	selectCategoryAnimals() {
-		this.gameService.selectedCategory = this.gameService.words.animals;
-		this.router.navigateByUrl('/flashcard');
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.animals;
+		this.goToGame();
 	}
 
 	selectCategoryHomophones() {
-		this.gameService.selectedCategory = this.gameService.words.homophones;
-		this.router.navigateByUrl('/flashcard');
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.homophones;
+		this.goToGame();
 	}
 
 	selectCategoryTransitionWords() {
-		this.gameService.selectedCategory = this.gameService.words.transition;
-		this.router.navigateByUrl('/flashcard');
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.transition;
+		this.goToGame();
 	}
 
 	selectCategoryFormality() {
-		this.gameService.selectedCategory = this.gameService.words.formality;
-		this.router.navigateByUrl('/flashcard');
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.formality;
+		this.goToGame();
 	}
 }

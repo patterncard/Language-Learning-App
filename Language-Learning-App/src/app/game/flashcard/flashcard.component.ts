@@ -10,7 +10,6 @@ import { GameService } from '../game.service';
 	styleUrls: ['./flashcard.component.scss'],
 })
 export class FlashcardComponent implements OnInit {
-	message: any;
 	constructor(
 		private router: Router,
 		private primengConfig: PrimeNGConfig,
