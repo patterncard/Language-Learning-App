@@ -65,12 +65,21 @@
 		color: #000000;
 		margin-top: 160px;
 	}
+	&__displayed-word-en {
+		margin-top: 80px;
+	}
+	&__displayed-sentence {
+		margin-top: 0;
+	}
+	&__displayed-word-pl {
+		display: flex;
+		flex-direction: column;
+	}
 	&__feedback {
 		width: 81px;
 		height: 26px;
 	}
 	&__input {
-		width: 500px;
 		text-align: center;
 	}
 	&__button {
@@ -83,6 +92,11 @@
 	&__button {
 		margin-top: 80px;
 	}
+	&__input-pl {
+		margin-top: 0;
+		display: flex;
+		align-self: center;
+	}
 	&__button-container {
 		display: flex;
 		justify-content: center;
@@ -90,7 +104,6 @@
 }
 
 .correct {
-	position: static;
 	font-family: "Inter";
 	font-style: italic;
 	font-weight: 500;

@@ -10,7 +10,12 @@ import { GameService } from '../game.service';
 	styleUrls: ['./sentence.component.scss'],
 })
 export class SentenceComponent implements OnInit {
-	message: any;
+	part1En = '';
+	gapEn = '';
+	part2En = '';
+	part1Pl = '';
+	gapPl = '';
+	part2Pl = '';
 	constructor(
 		private router: Router,
 		private primengConfig: PrimeNGConfig,
@@ -20,14 +25,13 @@ export class SentenceComponent implements OnInit {
 
 	isChecked = false;
 	isCorrectAnswear = false;
-	word = '';
-	enteredWord = new FormControl('');
+	enteredGap = new FormControl('');
 	randomWord = 0;
 	points = 0;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
-		this.generateWord();
+		this.generateSentences();
 	}
 
 	goBackHome() {
@@ -36,12 +40,12 @@ export class SentenceComponent implements OnInit {
 
 	checkAnswear() {
 		this.isChecked = true;
-		console.log(this.word);
-		console.log(this.enteredWord.value);
+		console.log(this.gapEn);
+		console.log(this.enteredGap.value);
 
 		if (
-			this.enteredWord.value ===
-			this.gameService.selectedCategory[this.randomWord].pl
+			this.enteredGap.value ===
+			this.gameService.selectedCategory[this.randomWord].pl.gap
 		) {
 			this.isCorrectAnswear = true;
 			this.points += 10;
@@ -49,24 +53,36 @@ export class SentenceComponent implements OnInit {
 			console.log(this.points);
 		} else {
 			this.isCorrectAnswear = false;
-			console.log(this.gameService.selectedCategory[this.randomWord].pl);
+			console.log(
+				this.gameService.selectedCategory[this.randomWord].pl.gap
+			);
 		}
 	}
 
 	nextSentence() {
 		this.isChecked = false;
-		this.generateWord();
+		this.generateSentences();
 		this.resetInput();
 	}
 
-	generateWord() {
+	generateSentences() {
 		this.randomWord = Math.floor(
 			Math.random() * this.gameService.selectedCategory.length
 		);
-		this.word = this.gameService.selectedCategory[this.randomWord].en;
+		this.part1En =
+			this.gameService.selectedCategory[this.randomWord].en.part1;
+		this.gapEn = this.gameService.selectedCategory[this.randomWord].en.gap;
+		this.part2En =
+			this.gameService.selectedCategory[this.randomWord].en.part2;
+
+		this.part1Pl =
+			this.gameService.selectedCategory[this.randomWord].pl.part1;
+		this.gapPl = this.gameService.selectedCategory[this.randomWord].pl.gap;
+		this.part2Pl =
+			this.gameService.selectedCategory[this.randomWord].pl.part2;
 	}
 
 	resetInput() {
-		this.enteredWord = new FormControl('');
+		this.enteredGap = new FormControl('');
 	}
 }

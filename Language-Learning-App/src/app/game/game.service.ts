@@ -8,6 +8,7 @@ export class GameService {
 
 	selectedCategory: any;
 	selectedGameRoutes: any;
+	selectedGameType: any;
 
 	gameRoutes = ['flashcard', 'sentence'];
 
@@ -311,44 +312,124 @@ export class GameService {
 	sentences = {
 		food: [
 			{
-				en: 'water',
-				pl: 'woda',
+				en: {
+					part1: 'Pure natural ',
+					gap: 'water',
+					part2: ' from a stream or brook',
+				},
+				pl: {
+					part1: 'Czysta naturalna ',
+					gap: 'woda',
+					part2: ' ze strumienia lub potoku',
+				},
 			},
 			{
-				en: 'egg',
-				pl: 'jajko',
+				en: {
+					part1: 'Pudding made of corn and cream and ',
+					gap: 'egg',
+					part2: '',
+				},
+				pl: {
+					part1: 'Budyń z kukurydzy i śmietany i ',
+					gap: 'jajka',
+					part2: '',
+				},
 			},
 			{
-				en: 'apple',
-				pl: 'jabłko',
+				en: {
+					part1: 'Large ',
+					gap: 'apple',
+					part2: 'with a red skin',
+				},
+				pl: {
+					part1: 'Duże',
+					gap: 'jabłko',
+					part2: 'z czerwoną skórką',
+				},
 			},
 			{
-				en: 'cheese',
-				pl: 'ser',
+				en: {
+					part1: 'Quiche made with',
+					gap: 'cheese ',
+					part2: ' and bacon',
+				},
+				pl: {
+					part1: 'Quiche z',
+					gap: 'serem',
+					part2: 'i boczkiem',
+				},
 			},
 			{
-				en: 'apricot',
-				pl: 'morela',
+				en: {
+					part1: 'Sweet liqueur made from wine and brandy flavored with plum or peach or',
+					gap: 'apricot ',
+					part2: 'kernels and bitter almonds',
+				},
+				pl: {
+					part1: 'Słodki likier z wina i brandy o smaku śliwki lub brzoskwini lub pestek',
+					gap: 'moreli',
+					part2: 'i gorzkich migdałów',
+				},
 			},
 			{
-				en: 'carrot',
-				pl: 'marchewka',
+				en: {
+					part1: '',
+					gap: 'Carrot',
+					part2: 'and stick',
+				},
+				pl: {
+					part1: '',
+					gap: 'Marchewka',
+					part2: 'i kij',
+				},
 			},
 			{
-				en: 'milk',
-				pl: 'mleko',
+				en: {
+					part1: 'Watery part of ',
+					gap: 'milk',
+					part2: 'is produced when raw milk sours and coagulates',
+				},
+				pl: {
+					part1: 'Wodnista część',
+					gap: 'mleka',
+					part2: 'powstaje, gdy surowe mleko kwaśnieje i koaguluje',
+				},
 			},
 			{
-				en: 'rice',
-				pl: 'ryż',
+				en: {
+					part1: 'Puffy ',
+					gap: 'rice',
+					part2: 'kernels',
+				},
+				pl: {
+					part1: 'Ziarna',
+					gap: 'ryżu',
+					part2: 'dmuchanego',
+				},
 			},
 			{
-				en: 'chicken',
-				pl: 'kurczak',
+				en: {
+					part1: 'Take out the ',
+					gap: 'chicken',
+					part2: 'after adding the vegetables',
+				},
+				pl: {
+					part1: 'Wyjmij',
+					gap: 'kurczaka',
+					part2: 'po dodaniu warzyw',
+				},
 			},
 			{
-				en: 'fish',
-				pl: 'ryba',
+				en: {
+					part1: 'A small',
+					gap: 'fish',
+					part2: 'of the genus Sillago',
+				},
+				pl: {
+					part1: 'Mała',
+					gap: 'ryba',
+					part2: 'z rodzaju Sillago',
+				},
 			},
 		],
 		home: [

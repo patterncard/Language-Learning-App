@@ -7,7 +7,8 @@
     </div>
     <div class="sentence__container">
         <div class="sentence__content">
-            <div class="sentence__displayed-word">{{word}}</div>
+            <div class="sentence__displayed-word sentence__displayed-word-en">{{ part1En }} {{ gapEn }} {{ part2En }}
+            </div>
             <div class="sentence__feedback">
                 <div *ngIf="isChecked">
                     <div *ngIf="isCorrectAnswear; else incorrect" class="correct">correct</div>
@@ -17,19 +18,25 @@
                 </div>
             </div>
             <div>
-                <div *ngIf="!isChecked; else nextInput">
+                <div *ngIf="!isChecked; else nextInput" class="sentence__displayed-word-pl">
+                    <div class="sentence__displayed-word sentence__displayed-sentence">{{ part1Pl }}</div>
                     <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
-                        class="sentence__input p-inputtext-lg" [formControl]="enteredWord" />
+                        class="sentence__input sentence__input-pl p-inputtext-sm" [formControl]="enteredGap" />
+                    <div class="sentence__displayed-word sentence__displayed-sentence">{{ part2Pl }}</div>
                 </div>
                 <ng-template #nextInput>
-                    <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
-                        class="sentence__input p-inputtext-lg" [formControl]="enteredWord" />
+                    <div class="sentence__displayed-word-pl">
+                        <div class="sentence__displayed-word sentence__displayed-sentence">{{ part1Pl }}</div>
+                        <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
+                            class="sentence__input sentence__input-pl p-inputtext-sm" [formControl]="enteredGap" />
+                        <div class="sentence__displayed-word sentence__displayed-sentence">{{ part2Pl }}</div>
+                    </div>
                 </ng-template>
             </div>
             <div class="sentence__button-container">
                 <div *ngIf="!isChecked; else next">
                     <button pButton pRipple type="button" label="Check"
-                        class="sentence__button p-button-rounded p-button-lg p-button-raised"
+                        class="sentence__button sentence__button-pl p-button-rounded p-button-lg p-button-raised"
                         (click)="checkAnswear()"></button>
                 </div>
                 <ng-template #next>

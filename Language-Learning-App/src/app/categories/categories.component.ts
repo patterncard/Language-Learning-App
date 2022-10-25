@@ -31,37 +31,44 @@ export class CategoriesComponent {
 	}
 
 	selectCategoryFood() {
-		this.gameService.selectedCategory = this.gameService.words.food;
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.food;
 		this.goToGame();
 	}
 
 	selectCategoryHome() {
-		this.gameService.selectedCategory = this.gameService.words.home;
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.home;
 		this.goToGame();
 	}
 
 	selectCategoryFamily() {
-		this.gameService.selectedCategory = this.gameService.words.family;
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.family;
 		this.goToGame();
 	}
 
 	selectCategoryAnimals() {
-		this.gameService.selectedCategory = this.gameService.words.animals;
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.animals;
 		this.goToGame();
 	}
 
 	selectCategoryHomophones() {
-		this.gameService.selectedCategory = this.gameService.words.homophones;
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.homophones;
 		this.goToGame();
 	}
 
 	selectCategoryTransitionWords() {
-		this.gameService.selectedCategory = this.gameService.words.transition;
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.transition;
 		this.goToGame();
 	}
 
 	selectCategoryFormality() {
-		this.gameService.selectedCategory = this.gameService.words.formality;
+		this.gameService.selectedCategory =
+			this.gameService.selectedGameType.formality;
 		this.goToGame();
 	}
 }
