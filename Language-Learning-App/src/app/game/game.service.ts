@@ -10,7 +10,7 @@ export class GameService {
 	selectedGameRoutes: any;
 	selectedGameType: any;
 
-	gameRoutes = ['flashcard', 'sentence'];
+	gameRoutes = ['flashcard', 'sentence', 'image'];
 
 	words = {
 		food: [
@@ -685,4 +685,49 @@ export class GameService {
 			},
 		],
 	};
+
+	images = {
+		food: [
+			{
+				en: 'water',
+				pl: 'woda',
+			},
+			{
+				en: 'egg',
+				pl: 'jajko',
+			},
+			{
+				en: 'apple',
+				pl: 'jabłko',
+			},
+			{
+				en: 'cheese',
+				pl: 'ser',
+			},
+			{
+				en: 'apricot',
+				pl: 'morela',
+			},
+			{
+				en: 'carrot',
+				pl: 'marchewka',
+			},
+			{
+				en: 'milk',
+				pl: 'mleko',
+			},
+			{
+				en: 'rice',
+				pl: 'ryż',
+			},
+			{
+				en: 'chicken',
+				pl: 'kurczak',
+			},
+			{
+				en: 'fish',
+				pl: 'ryba',
+			},
+		],
+	}
 }

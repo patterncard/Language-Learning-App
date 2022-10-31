@@ -5,6 +5,7 @@ import { CategoriesRoutingModule } from './categories/categories-routing.module'
 import { CoinsRoutingModule } from './coins/coins-routing.module';
 import { FlashcardRoutingModule } from './game/flashcard/flashcard-routing.module';
 import { GameRoutingModule } from './game/game-routing.module';
+import { ImageRoutingModule } from './game/image/image-routing.module';
 import { SentenceRoutingModule } from './game/sentence/sentence-routing.module';
 import { HighscoreRoutingModule } from './highscore/highscore-routing.module';
 import { HomeRoutingModule } from './home/home-routing.module';
@@ -70,6 +71,11 @@ const routes: Routes = [
 				(m) => m.SentenceModule
 			),
 	},
+	{
+		path: 'image',
+		loadChildren: () =>
+			import('./game/image/image.module').then((m) => m.ImageModule),
+	},
 ];
 
 @NgModule({
@@ -84,7 +90,8 @@ const routes: Routes = [
 		PictureRoutingModule,
 		CoinsRoutingModule,
 		FlashcardRoutingModule,
-		SentenceRoutingModule
+		SentenceRoutingModule,
+		ImageRoutingModule,
 	],
 	exports: [RouterModule],
 })
