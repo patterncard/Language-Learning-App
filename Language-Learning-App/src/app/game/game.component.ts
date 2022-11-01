@@ -21,4 +21,10 @@ export class GameComponent {
 		this.gameService.selectedGameType = this.gameService.sentences;
 		this.router.navigateByUrl('/categories');
 	}
+
+	chooseImage() {
+		this.gameService.selectedGameRoutes = this.gameService.gameRoutes[2];
+		this.gameService.selectedGameType = this.gameService.images;
+		this.router.navigateByUrl('/categories');
+	}
 }

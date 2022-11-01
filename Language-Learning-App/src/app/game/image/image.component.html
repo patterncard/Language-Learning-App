@@ -1,0 +1,60 @@
+<div class="image">
+    <div class="image__top-bar">
+        <button class="image__go-back" (click)="goBackHome()">
+            <img src="./../../assets/img/arrowhead.png" alt="" />
+        </button>
+        <span class="image__title">Pick image</span>
+    </div>
+    <div class="image__container">
+        <div class="image__content">
+            <div class="image__displayed-word">{{ wordInPolishToDisplay }}</div>
+            <div id="choice" class="choice__container">
+                <button id="choice0" class="choice__tile" (click)="select0()" [ngClass]="{'selected': selectedChoice0}">
+                    <div class="choice__background">
+                        <img class="image-icon" src="../../../assets/img/image-game/{{ word0 }}.png" alt="" />
+                    </div>
+                </button>
+
+                <button id="choice1" class="choice__tile" (click)="select1()" [ngClass]="{'selected': selectedChoice1}">
+                    <div class="choice__background">
+                        <img class="image-icon" src="../../../assets/img/image-game/{{ word1 }}.png" alt="" />
+                    </div>
+                </button>
+
+                <button id="choice2" class="choice__tile" (click)="select2()" [ngClass]="{'selected': selectedChoice2}">
+                    <div class="choice__background">
+                        <img class="image-icon" src="../../../assets/img/image-game/{{ word2 }}.png" alt="" />
+                    </div>
+                </button>
+
+                <button id="choice3" class="choice__tile" (click)="select3()" [ngClass]="{'selected': selectedChoice3}">
+                    <div class="choice__background">
+                        <img class="image-icon" src="../../../assets/img/image-game/{{ word3 }}.png" alt="" />
+                    </div>
+                </button>
+            </div>
+            <div class="image__feedback">
+                <div *ngIf="isChecked">
+                    <div *ngIf="isCorrectAnswear; else incorrect" class="correct">
+                        correct
+                    </div>
+                    <ng-template #incorrect>
+                        <div class="incorrect">incorrect</div>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="image__button-container">
+                <div *ngIf="!isChecked; else next">
+                    <button pButton pRipple type="button" label="Check"
+                        class="image__button p-button-rounded p-button-lg p-button-raised"
+                        (click)="checkAnswear()"></button>
+                </div>
+                <ng-template #next>
+                    <button pButton pRipple type="button" label="Next"
+                        class="image__button p-button-rounded p-button-lg p-button-raised"
+                        (click)="nextImage()"></button>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
