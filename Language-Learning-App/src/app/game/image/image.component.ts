@@ -78,12 +78,7 @@ export class ImageComponent implements OnInit {
 				);
 			}
 		}
-		console.log(randomNumbers);
-		console.log(this.generatedWords);
-		console.log(this.generatedWordsInPolish);
-
 		this.wordInPolishToDisplay = this.generatedWordsInPolish[0];
-
 		this.word0 = this.generatedWords[0];
 		this.word1 = this.generatedWords[1];
 		this.word2 = this.generatedWords[2];
