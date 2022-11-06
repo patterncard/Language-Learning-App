@@ -28,13 +28,14 @@ export class AuthComponent implements OnDestroy {
 
 	logIn() {
 		this.httpClient
-			.post('http://localhost:1337/api/auth/local', {
+			.post<{ jwt: string }>('http://localhost:1337/api/auth/local', {
 				identifier: this.username.value,
 				password: this.password.value,
 			})
 			.subscribe(
 				(x) => {
 					console.log(x);
+					localStorage.setItem('token', x.jwt);
 					this.router.navigateByUrl('/home');
 				},
 				(error) => {

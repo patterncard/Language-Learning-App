@@ -5,7 +5,8 @@
 	<div class="auth-container">
 		<form class="auth-form p-inputtext-lg p-button-lg">
 			<input class="auth-form__username " placeholder="Username" [formControl]="username" type="text" pInputText>
-			<input class="auth-form__password " placeholder="Password" [formControl]="password" type="text" pInputText>
+			<input class="auth-form__password " placeholder="Password" [formControl]="password" type="password"
+				pInputText>
 			<button class="auth-form__button-login p-button-lg" type="button" (click)="logIn()" pButton>Log
 				In</button>
 			<hr class=" auth-form__line">
