@@ -77,6 +77,7 @@ export class FlashcardComponent implements OnInit {
 				);
 			}
 		}
+		this.achievements.savePoints();
 	}
 
 	nextFlashcard() {

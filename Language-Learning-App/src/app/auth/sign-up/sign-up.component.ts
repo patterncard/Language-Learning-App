@@ -5,37 +5,40 @@ import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 
 @Component({
-  selector: 'sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss'],
+	selector: 'sign-up',
+	templateUrl: './sign-up.component.html',
+	styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
-  constructor(
-    public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig,
-    private httpClient: HttpClient
-  ) {}
+	constructor(
+		public ref: DynamicDialogRef,
+		public config: DynamicDialogConfig,
+		private httpClient: HttpClient
+	) {}
 
-  // ngOnInit() { }
+	// ngOnInit() { }
 
-  username = new FormControl('');
-  email = new FormControl('');
-  password = new FormControl('');
+	username = new FormControl('');
+	email = new FormControl('');
+	password = new FormControl('');
 
-  signUp() {
-    this.httpClient
-      .post('http://localhost:1337/api/auth/local/register', {
-        username: this.username.value,
-        email: this.email.value,
-        password: this.password.value,
-      })
-      .subscribe(
-        (x) => {
-          console.log(x);
-        },
-        (qweqweqwewy) => {
-          console.log(qweqweqwewy);
-        }
-      );
-  }
+	signUp() {
+		this.httpClient
+			.post<{ jwt: string }>(
+				'http://localhost:1337/api/auth/local/register',
+				{
+					username: this.username.value,
+					email: this.email.value,
+					password: this.password.value,
+				}
+			)
+			.subscribe(
+				(x) => {
+					localStorage.setItem('token', x.jwt);
+				},
+				(qweqweqwewy) => {
+					console.log(qweqweqwewy);
+				}
+			);
+	}
 }
