@@ -19,11 +19,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 	points = 0;
 	@Input() pointsUntilNext = 0;
 	pointsUntilNextCount = 1000;
+	// pointsFromSubsription = 0;
 
 	ngOnInit() {
 		this.level = this.achievements.level;
 		this.coins = this.achievements.coins;
 		this.points = this.achievements.points;
+		// this.achievements.getPoints().subscribe((x) => {
+		// 	console.log(x);
+		// });
+		// this.points =
 		this.pointsUntilNext = this.pointsUntilNextCount - this.points;
 	}
 	ngOnDestroy() {}

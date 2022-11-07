@@ -42,4 +42,17 @@ export class AchievementsService {
 				}
 			);
 	}
+
+	getPoints() {
+		const token = localStorage.getItem('token');
+		const decoded = jwt_decode<{ id: string }>(token!);
+		const id = decoded.id;
+
+		return this.httpClient.get(
+			'http://localhost:1337/api/points?populate=%2A',
+			{
+				headers: { Authorization: `Bearer ${token}` },
+			}
+		);
+	}
 }
