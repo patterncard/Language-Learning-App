@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AchievementsService } from './achievements.service';
+import { User } from './user.interface';
 
 @Component({
 	selector: 'home',
@@ -19,17 +20,17 @@ export class HomeComponent implements OnInit, OnDestroy {
 	points = 0;
 	@Input() pointsUntilNext = 0;
 	pointsUntilNextCount = 1000;
-	// pointsFromSubsription = 0;
 
 	ngOnInit() {
 		this.level = this.achievements.level;
 		this.coins = this.achievements.coins;
-		this.points = this.achievements.points;
-		// this.achievements.getPoints().subscribe((x) => {
-		// 	console.log(x);
-		// });
-		// this.points =
-		this.pointsUntilNext = this.pointsUntilNextCount - this.points;
+		this.achievements.getPoints().subscribe((user: User) => {
+			this.points = user.points!;
+			this.pointsUntilNext = this.pointsUntilNextCount - this.points;
+			this.username = user.username!;
+			this.level = user.level!;
+			this.coins = user.coins!;
+		});
 	}
 	ngOnDestroy() {}
 

@@ -6,6 +6,9 @@ import jwt_decode from 'jwt-decode';
 	providedIn: 'root',
 })
 export class AchievementsService {
+	token!: string;
+	decoded!: { id: string };
+	id!: string;
 	constructor(private httpClient: HttpClient) {}
 	points = 0;
 	level = 1;
@@ -16,22 +19,21 @@ export class AchievementsService {
 	unlockedCategory4 = false;
 	unlockedCategory5 = false;
 
+	decodeToken() {
+		this.token = localStorage.getItem('token')!;
+		this.decoded = jwt_decode<{ id: string }>(this.token!);
+		this.id = this.decoded.id;
+	}
+
 	savePoints() {
-		const token = localStorage.getItem('token');
-
-		const decoded = jwt_decode<{ id: string }>(token!);
-		const id = decoded.id;
-
+		this.decodeToken();
 		return this.httpClient
-			.post(
-				'http://localhost:1337/api/points',
+			.put(
+				`http://localhost:1337/api/users/${this.id}`,
 				{
-					data: {
-						count: this.points,
-						users_permissions_user: id,
-					},
+					points: this.points,
 				},
-				{ headers: { Authorization: `Bearer ${token}` } }
+				{ headers: { Authorization: `Bearer ${this.token}` } }
 			)
 			.subscribe(
 				(x) => {
@@ -44,14 +46,11 @@ export class AchievementsService {
 	}
 
 	getPoints() {
-		const token = localStorage.getItem('token');
-		const decoded = jwt_decode<{ id: string }>(token!);
-		const id = decoded.id;
-
+		this.decodeToken();
 		return this.httpClient.get(
-			'http://localhost:1337/api/points?populate=%2A',
+			`http://localhost:1337/api/users/${this.id}`,
 			{
-				headers: { Authorization: `Bearer ${token}` },
+				headers: { Authorization: `Bearer ${this.token}` },
 			}
 		);
 	}
