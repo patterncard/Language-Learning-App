@@ -27,10 +27,10 @@ export class FlashcardComponent implements OnInit {
 	word = '';
 	enteredWord = new FormControl('');
 	randomWord = 0;
-	points = 0;
+	points = 10;
 	languageOptions: any[];
 	selectedLanguage = '';
-	isEnglishToPolish = false;
+	isEnglishToPolish = true;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
@@ -46,15 +46,14 @@ export class FlashcardComponent implements OnInit {
 		this.isChecked = true;
 		console.log(this.word);
 		console.log(this.enteredWord.value);
-		if (!this.isEnglishToPolish) {
+
+		if (this.isEnglishToPolish) {
 			if (
 				this.enteredWord.value ===
 				this.gameService.selectedCategory[this.randomWord].pl
 			) {
 				this.isCorrectAnswear = true;
-				this.points += 10;
-				this.achievements.points = this.points;
-				console.log(this.points);
+				this.achievements.sumPoints(this.points);
 			} else {
 				this.isCorrectAnswear = false;
 				console.log(
@@ -67,9 +66,7 @@ export class FlashcardComponent implements OnInit {
 				this.gameService.selectedCategory[this.randomWord].en
 			) {
 				this.isCorrectAnswear = true;
-				this.points += 10;
-				this.achievements.points = this.points;
-				console.log(this.points);
+				this.achievements.sumPoints(this.points);
 			} else {
 				this.isCorrectAnswear = false;
 				console.log(
@@ -90,7 +87,7 @@ export class FlashcardComponent implements OnInit {
 		this.randomWord = Math.floor(
 			Math.random() * this.gameService.selectedCategory.length
 		);
-		if (!this.isEnglishToPolish) {
+		if (this.isEnglishToPolish) {
 			this.word = this.gameService.selectedCategory[this.randomWord].en;
 		} else {
 			this.word = this.gameService.selectedCategory[this.randomWord].pl;
@@ -102,13 +99,7 @@ export class FlashcardComponent implements OnInit {
 	}
 
 	changeLanguage() {
-		this.isEnglishToPolish = true;
-		// !this.isEnglishToPolish;
-		// if (this.selectedLanguage == this.languageOptions[0]) {
-		// 	this.selectedLanguage = this.languageOptions[1];
-		// } else {
-		// 	this.selectedLanguage = this.languageOptions[0];
-		// }
+		this.isEnglishToPolish = !this.isEnglishToPolish;
 		this.generateWord();
 		this.resetInput();
 		this.isChecked = false;

@@ -27,7 +27,7 @@ export class SentenceComponent implements OnInit {
 	isCorrectAnswear = false;
 	enteredGap = new FormControl('');
 	randomWord = 0;
-	points = 0;
+	points = 10;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
@@ -48,8 +48,7 @@ export class SentenceComponent implements OnInit {
 			this.gameService.selectedCategory[this.randomWord].pl.gap
 		) {
 			this.isCorrectAnswear = true;
-			this.points += 10;
-			this.achievements.points = this.points;
+			this.achievements.sumPoints(this.points);
 			console.log(this.points);
 		} else {
 			this.isCorrectAnswear = false;
