@@ -49,7 +49,6 @@ export class SentenceComponent implements OnInit {
 		) {
 			this.isCorrectAnswear = true;
 			this.achievements.sumPoints(this.points);
-			console.log(this.points);
 		} else {
 			this.isCorrectAnswear = false;
 			console.log(

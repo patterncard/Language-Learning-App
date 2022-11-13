@@ -47,7 +47,6 @@ export class ImageComponent implements OnInit {
 		if (this.selectedChoice0) {
 			this.isCorrectAnswear = true;
 			this.achievementsService.sumPoints(this.points);
-			console.log(this.points);
 		} else {
 			this.isCorrectAnswear = false;
 		}
