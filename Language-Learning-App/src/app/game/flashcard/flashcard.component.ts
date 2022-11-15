@@ -20,8 +20,8 @@ export class FlashcardComponent implements OnInit {
 		private httpClient: HttpClient
 	) {
 		this.languageOptions = [
-			{ name: 'EN->PL', language: 'en' },
 			{ name: 'PL->EN', language: 'pl' },
+			{ name: 'EN->PL', language: 'en' },
 		];
 	}
 
@@ -33,7 +33,7 @@ export class FlashcardComponent implements OnInit {
 	points = 10;
 	languageOptions: any[];
 	selectedLanguage = '';
-	isEnglishToPolish = true;
+	isPolishToEnglish = true;
 	words: any;
 	wordsCount = 0;
 
@@ -52,11 +52,11 @@ export class FlashcardComponent implements OnInit {
 		console.log(this.word);
 		console.log(this.enteredWord.value);
 
-		if (this.isEnglishToPolish) {
+		if (this.isPolishToEnglish) {
 			if (
 				this.enteredWord.value ===
-				this.gameService.selectedCategory[this.randomWord].pl
-				// this.words[this.randomWord].attributes.pl
+				// this.gameService.selectedCategory[this.randomWord].pl
+				this.words[this.randomWord].attributes.pl
 			) {
 				this.isCorrectAnswear = true;
 				this.achievements.sumPoints(this.points);
@@ -94,7 +94,7 @@ export class FlashcardComponent implements OnInit {
 			this.words = words.data;
 			this.wordsCount = words.data!.length;
 			this.randomWord = Math.floor(Math.random() * this.wordsCount);
-			if (!this.isEnglishToPolish) {
+			if (!this.isPolishToEnglish) {
 				this.word = this.words[this.randomWord].attributes.en;
 			} else {
 				this.word = this.words[this.randomWord].attributes.pl;
@@ -111,7 +111,7 @@ export class FlashcardComponent implements OnInit {
 	}
 
 	changeLanguage() {
-		this.isEnglishToPolish = !this.isEnglishToPolish;
+		this.isPolishToEnglish = !this.isPolishToEnglish;
 		this.generateWord();
 		this.resetInput();
 		this.isChecked = false;
