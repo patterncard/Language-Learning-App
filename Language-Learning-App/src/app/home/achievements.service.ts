@@ -54,4 +54,9 @@ export class AchievementsService {
 			}
 		);
 	}
+
+	sumPoints(newPoints: number) {
+		this.points += newPoints;
+		console.log({ points: this.points });
+	}
 }
