@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
 	providedIn: 'root',
 })
 export class GameService {
-	constructor() {}
-
 	selectedCategory: any;
 	selectedGameRoutes: any;
 	selectedGameType: any;
@@ -729,5 +727,5 @@ export class GameService {
 				pl: 'ryba',
 			},
 		],
-	}
+	};
 }
