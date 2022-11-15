@@ -55,29 +55,24 @@ export class FlashcardComponent implements OnInit {
 		if (this.isEnglishToPolish) {
 			if (
 				this.enteredWord.value ===
-				// this.gameService.selectedCategory[this.randomWord].pl
 				this.words[this.randomWord].attributes.pl
 			) {
 				this.isCorrectAnswear = true;
 				this.achievements.sumPoints(this.points);
 			} else {
 				this.isCorrectAnswear = false;
-				console.log(
-					this.gameService.selectedCategory[this.randomWord].pl
-				);
+				console.log(this.words[this.randomWord].attributes.pl);
 			}
 		} else {
 			if (
 				this.enteredWord.value ===
-				this.gameService.selectedCategory[this.randomWord].en
+				this.words[this.randomWord].attributes.en
 			) {
 				this.isCorrectAnswear = true;
 				this.achievements.sumPoints(this.points);
 			} else {
 				this.isCorrectAnswear = false;
-				console.log(
-					this.gameService.selectedCategory[this.randomWord].en
-				);
+				console.log(this.words[this.randomWord].attributes.en);
 			}
 		}
 		this.achievements.savePoints();
