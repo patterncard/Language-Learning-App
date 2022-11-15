@@ -16,10 +16,10 @@ export class ImageComponent implements OnInit {
 		private gameService: GameService,
 		private achievementsService: AchievementsService
 	) {}
-	
+
 	isChecked = false;
 	isCorrectAnswear = false;
-	points = 0;
+	points = 10;
 	generatedWords: string[] = [];
 	word0: string = '';
 	word1: string = '';
@@ -46,9 +46,7 @@ export class ImageComponent implements OnInit {
 		this.isChecked = true;
 		if (this.selectedChoice0) {
 			this.isCorrectAnswear = true;
-			this.points += 10;
-			this.achievementsService.points = this.points;
-			console.log(this.points);
+			this.achievementsService.sumPoints(this.points);
 		} else {
 			this.isCorrectAnswear = false;
 		}
