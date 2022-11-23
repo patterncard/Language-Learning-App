@@ -87,14 +87,6 @@ export class FlashcardComponent implements OnInit {
 	generateWord() {
 		this.getWords().subscribe((words: Words) => {
 			this.words = words.data;
-			console.log({
-				words: words.data!.map((x) => ({
-					en: x.attributes.en,
-					pl: x.attributes.pl,
-					// @ts-ignore-next-line
-					cat: x.attributes.category.data.attributes.name,
-				})),
-			});
 			this.wordsCount = words.data!.length;
 			this.randomWord = Math.floor(Math.random() * this.wordsCount);
 			if (this.isEnglishToPolish) {

@@ -70,20 +70,6 @@ export class SentenceComponent implements OnInit {
 	generateSentences() {
 		this.getSentences().subscribe((sentences: Sentences) => {
 			this.sentences = sentences.data;
-			console.log({
-				words: sentences.data!.map((x) => ({
-					enPart1: x.attributes.enPart1,
-					enGap: x.attributes.enGap,
-					enPart2: x.attributes.enPart2,
-
-					plPart1: x.attributes.plPart1,
-					plGap: x.attributes.plGap,
-					plPart2: x.attributes.plPart2,
-
-					// @ts-ignore-next-line
-					// cat: x.attributes.category.data.attributes.name,
-				})),
-			});
 			this.sentencesCount = sentences.data!.length;
 			this.randomWord = Math.floor(Math.random() * this.sentencesCount);
 

@@ -69,7 +69,6 @@ export class ImageComponent implements OnInit {
 	generateWord() {
 		this.getImages().subscribe((images: Images) => {
 			this.images = images.data;
-			console.log(this.images);
 			this.imagesCount = images.data!.length;
 			const randomNumbers = [];
 			while (randomNumbers.length < 4) {

@@ -41,8 +41,6 @@ export class CategoriesComponent {
 
 	selectCategoryFood() {
 		this.getCategory(1).subscribe((category: Category) => {
-			console.log({ category });
-			console.log(category.data?.attributes?.name);
 			this.gameService.selectedCategory = category.data?.attributes?.name;
 			this.goToGame();
 		});
@@ -50,8 +48,6 @@ export class CategoriesComponent {
 
 	selectCategoryHome() {
 		this.getCategory(2).subscribe((category: Category) => {
-			console.log({ category });
-			console.log(category.data?.attributes?.name);
 			this.gameService.selectedCategory = category.data?.attributes?.name;
 			this.goToGame();
 		});
@@ -59,8 +55,6 @@ export class CategoriesComponent {
 
 	selectCategoryFamily() {
 		this.getCategory(3).subscribe((category: Category) => {
-			console.log({ category });
-			console.log(category.data?.attributes?.name);
 			this.gameService.selectedCategory = category.data?.attributes?.name;
 			this.goToGame();
 		});
@@ -68,8 +62,6 @@ export class CategoriesComponent {
 
 	selectCategoryAnimals() {
 		this.getCategory(4).subscribe((category: Category) => {
-			console.log({ category });
-			console.log(category.data?.attributes?.name);
 			this.gameService.selectedCategory = category.data?.attributes?.name;
 			this.goToGame();
 		});
@@ -77,8 +69,6 @@ export class CategoriesComponent {
 
 	selectCategoryHomophones() {
 		this.getCategory(5).subscribe((category: Category) => {
-			console.log({ category });
-			console.log(category.data?.attributes?.name);
 			this.gameService.selectedCategory = category.data?.attributes?.name;
 			this.goToGame();
 		});
@@ -86,8 +76,6 @@ export class CategoriesComponent {
 
 	selectCategoryTransitionWords() {
 		this.getCategory(6).subscribe((category: Category) => {
-			console.log({ category });
-			console.log(category.data?.attributes?.name);
 			this.gameService.selectedCategory = category.data?.attributes?.name;
 			this.goToGame();
 		});
@@ -95,8 +83,6 @@ export class CategoriesComponent {
 
 	selectCategoryFormality() {
 		this.getCategory(7).subscribe((category: Category) => {
-			console.log({ category });
-			console.log(category.data?.attributes?.name);
 			this.gameService.selectedCategory = category.data?.attributes?.name;
 			this.goToGame();
 		});
