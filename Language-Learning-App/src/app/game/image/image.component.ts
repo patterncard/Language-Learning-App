@@ -1,20 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { AchievementsService } from 'src/app/home/achievements.service';
 import { GameService } from '../game.service';
+import { Images } from './images.interface';
 @Component({
 	selector: 'image',
 	templateUrl: './image.component.html',
 	styleUrls: ['./image.component.scss'],
 })
 export class ImageComponent implements OnInit {
+	images: any;
+	imagesCount!: number;
 	constructor(
 		private router: Router,
 		private primengConfig: PrimeNGConfig,
 		private gameService: GameService,
-		private achievementsService: AchievementsService
+		private achievementsService: AchievementsService,
+		private httpClient: HttpClient
 	) {}
 
 	isChecked = false;
@@ -50,6 +55,7 @@ export class ImageComponent implements OnInit {
 		} else {
 			this.isCorrectAnswear = false;
 		}
+		this.achievementsService.savePoints();
 		this.resetInput();
 	}
 
@@ -61,26 +67,35 @@ export class ImageComponent implements OnInit {
 	}
 
 	generateWord() {
-		const randomNumbers = [];
-		while (randomNumbers.length < 4) {
-			const random = Math.floor(
-				Math.random() * this.gameService.selectedCategory.length
-			);
-			if (randomNumbers.indexOf(random) === -1) {
-				randomNumbers.push(random);
-				this.generatedWords.push(
-					this.gameService.selectedCategory[random].en
-				);
-				this.generatedWordsInPolish.push(
-					this.gameService.selectedCategory[random].pl
-				);
+		this.getImages().subscribe((images: Images) => {
+			this.images = images.data;
+			console.log(this.images);
+			this.imagesCount = images.data!.length;
+			const randomNumbers = [];
+			while (randomNumbers.length < 4) {
+				const random = Math.floor(Math.random() * this.imagesCount);
+				if (randomNumbers.indexOf(random) === -1) {
+					randomNumbers.push(random);
+					this.generatedWords.push(
+						this.images[random].attributes.image.data.attributes.url
+					);
+					this.generatedWordsInPolish.push(
+						this.images[random].attributes.pl
+					);
+				}
 			}
-		}
-		this.wordInPolishToDisplay = this.generatedWordsInPolish[0];
-		this.word0 = this.generatedWords[0];
-		this.word1 = this.generatedWords[1];
-		this.word2 = this.generatedWords[2];
-		this.word3 = this.generatedWords[3];
+			this.wordInPolishToDisplay = this.generatedWordsInPolish[0];
+			this.word0 = `http://localhost:1337${this.generatedWords[0]}`;
+			this.word1 = `http://localhost:1337${this.generatedWords[1]}`;
+			this.word2 = `http://localhost:1337${this.generatedWords[2]}`;
+			this.word3 = `http://localhost:1337${this.generatedWords[3]}`;
+		});
+	}
+
+	getImages() {
+		return this.httpClient.get(
+			`http://localhost:1337/api/images?filters\[category\][name][$eq]=${this.gameService.selectedCategory}&populate=*`
+		);
 	}
 
 	shuffleTiles() {

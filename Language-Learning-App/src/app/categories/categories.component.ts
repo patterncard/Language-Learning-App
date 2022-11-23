@@ -40,7 +40,6 @@ export class CategoriesComponent {
 	}
 
 	selectCategoryFood() {
-		// this.gameService.selectedCategory =
 		this.getCategory(1).subscribe((category: Category) => {
 			console.log({ category });
 			console.log(category.data?.attributes?.name);
@@ -50,38 +49,56 @@ export class CategoriesComponent {
 	}
 
 	selectCategoryHome() {
-		this.gameService.selectedCategory =
-			this.gameService.selectedGameType.home;
-		this.goToGame();
+		this.getCategory(2).subscribe((category: Category) => {
+			console.log({ category });
+			console.log(category.data?.attributes?.name);
+			this.gameService.selectedCategory = category.data?.attributes?.name;
+			this.goToGame();
+		});
 	}
 
 	selectCategoryFamily() {
-		this.gameService.selectedCategory =
-			this.gameService.selectedGameType.family;
-		this.goToGame();
+		this.getCategory(3).subscribe((category: Category) => {
+			console.log({ category });
+			console.log(category.data?.attributes?.name);
+			this.gameService.selectedCategory = category.data?.attributes?.name;
+			this.goToGame();
+		});
 	}
 
 	selectCategoryAnimals() {
-		this.gameService.selectedCategory =
-			this.gameService.selectedGameType.animals;
-		this.goToGame();
+		this.getCategory(4).subscribe((category: Category) => {
+			console.log({ category });
+			console.log(category.data?.attributes?.name);
+			this.gameService.selectedCategory = category.data?.attributes?.name;
+			this.goToGame();
+		});
 	}
 
 	selectCategoryHomophones() {
-		this.gameService.selectedCategory =
-			this.gameService.selectedGameType.homophones;
-		this.goToGame();
+		this.getCategory(5).subscribe((category: Category) => {
+			console.log({ category });
+			console.log(category.data?.attributes?.name);
+			this.gameService.selectedCategory = category.data?.attributes?.name;
+			this.goToGame();
+		});
 	}
 
 	selectCategoryTransitionWords() {
-		this.gameService.selectedCategory =
-			this.gameService.selectedGameType.transition;
-		this.goToGame();
+		this.getCategory(6).subscribe((category: Category) => {
+			console.log({ category });
+			console.log(category.data?.attributes?.name);
+			this.gameService.selectedCategory = category.data?.attributes?.name;
+			this.goToGame();
+		});
 	}
 
 	selectCategoryFormality() {
-		this.gameService.selectedCategory =
-			this.gameService.selectedGameType.formality;
-		this.goToGame();
+		this.getCategory(7).subscribe((category: Category) => {
+			console.log({ category });
+			console.log(category.data?.attributes?.name);
+			this.gameService.selectedCategory = category.data?.attributes?.name;
+			this.goToGame();
+		});
 	}
 }

@@ -11,25 +11,25 @@
             <div id="choice" class="choice__container">
                 <button id="choice0" class="choice__tile" (click)="select0()" [ngClass]="{'selected': selectedChoice0}">
                     <div class="choice__background">
-                        <img class="image-icon" src="../../../assets/img/image-game/{{ word0 }}.png" alt="" />
+                        <img class="image-icon" src="{{ word0 }}" alt="" />
                     </div>
                 </button>
 
                 <button id="choice1" class="choice__tile" (click)="select1()" [ngClass]="{'selected': selectedChoice1}">
                     <div class="choice__background">
-                        <img class="image-icon" src="../../../assets/img/image-game/{{ word1 }}.png" alt="" />
+                        <img class="image-icon" src="{{ word1 }}" alt="" />
                     </div>
                 </button>
 
                 <button id="choice2" class="choice__tile" (click)="select2()" [ngClass]="{'selected': selectedChoice2}">
                     <div class="choice__background">
-                        <img class="image-icon" src="../../../assets/img/image-game/{{ word2 }}.png" alt="" />
+                        <img class="image-icon" src="{{ word2 }}" alt="" />
                     </div>
                 </button>
 
                 <button id="choice3" class="choice__tile" (click)="select3()" [ngClass]="{'selected': selectedChoice3}">
                     <div class="choice__background">
-                        <img class="image-icon" src="../../../assets/img/image-game/{{ word3 }}.png" alt="" />
+                        <img class="image-icon" src="{{ word3 }}" alt="" />
                     </div>
                 </button>
             </div>
