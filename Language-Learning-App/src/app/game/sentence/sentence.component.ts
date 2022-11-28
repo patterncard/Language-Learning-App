@@ -1,16 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { AchievementsService } from 'src/app/home/achievements.service';
 import { GameService } from '../game.service';
+import { Sentences } from './sentences.interface';
 @Component({
 	selector: 'sentence',
 	templateUrl: './sentence.component.html',
 	styleUrls: ['./sentence.component.scss'],
 })
 export class SentenceComponent implements OnInit {
-	part1En = '';
+	part1En!: string;
 	gapEn = '';
 	part2En = '';
 	part1Pl = '';
@@ -20,7 +22,8 @@ export class SentenceComponent implements OnInit {
 		private router: Router,
 		private primengConfig: PrimeNGConfig,
 		private gameService: GameService,
-		private achievements: AchievementsService
+		private achievements: AchievementsService,
+		private httpClient: HttpClient
 	) {}
 
 	isChecked = false;
@@ -28,6 +31,8 @@ export class SentenceComponent implements OnInit {
 	enteredGap = new FormControl('');
 	randomWord = 0;
 	points = 10;
+	sentences: any;
+	sentencesCount!: number;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
@@ -45,16 +50,15 @@ export class SentenceComponent implements OnInit {
 
 		if (
 			this.enteredGap.value ===
-			this.gameService.selectedCategory[this.randomWord].pl.gap
+			this.sentences[this.randomWord].attributes.plGap
 		) {
 			this.isCorrectAnswear = true;
 			this.achievements.sumPoints(this.points);
 		} else {
 			this.isCorrectAnswear = false;
-			console.log(
-				this.gameService.selectedCategory[this.randomWord].pl.gap
-			);
+			console.log(this.sentences[this.randomWord].attributes.plGap);
 		}
+		this.achievements.savePoints();
 	}
 
 	nextSentence() {
@@ -64,20 +68,25 @@ export class SentenceComponent implements OnInit {
 	}
 
 	generateSentences() {
-		this.randomWord = Math.floor(
-			Math.random() * this.gameService.selectedCategory.length
-		);
-		this.part1En =
-			this.gameService.selectedCategory[this.randomWord].en.part1;
-		this.gapEn = this.gameService.selectedCategory[this.randomWord].en.gap;
-		this.part2En =
-			this.gameService.selectedCategory[this.randomWord].en.part2;
+		this.getSentences().subscribe((sentences: Sentences) => {
+			this.sentences = sentences.data;
+			this.sentencesCount = sentences.data!.length;
+			this.randomWord = Math.floor(Math.random() * this.sentencesCount);
 
-		this.part1Pl =
-			this.gameService.selectedCategory[this.randomWord].pl.part1;
-		this.gapPl = this.gameService.selectedCategory[this.randomWord].pl.gap;
-		this.part2Pl =
-			this.gameService.selectedCategory[this.randomWord].pl.part2;
+			this.part1En = this.sentences[this.randomWord].attributes.enPart1;
+			this.gapEn = this.sentences[this.randomWord].attributes.enGap;
+			this.part2En = this.sentences[this.randomWord].attributes.enPart2;
+
+			this.part1Pl = this.sentences[this.randomWord].attributes.plPart1;
+			this.gapPl = this.sentences[this.randomWord].attributes.plGap;
+			this.part2Pl = this.sentences[this.randomWord].attributes.plPart2;
+		});
+	}
+
+	getSentences() {
+		return this.httpClient.get(
+			`http://localhost:1337/api/sentences?filters\[category\][name][$eq]=${this.gameService.selectedCategory}&populate=*`
+		);
 	}
 
 	resetInput() {
