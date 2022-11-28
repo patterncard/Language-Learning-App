@@ -21,14 +21,16 @@
                 <div *ngIf="!isChecked; else nextInput" class="sentence__displayed-word-pl">
                     <div class="sentence__displayed-word sentence__displayed-sentence">{{ part1Pl }}</div>
                     <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
-                        class="sentence__input sentence__input-pl p-inputtext-sm" [formControl]="enteredGap" />
+                        class="sentence__input sentence__input-pl p-inputtext-sm" [formControl]="enteredGap"
+                        (input)="enteredGap.setValue(enteredGap.value.toLowerCase())" />
                     <div class="sentence__displayed-word sentence__displayed-sentence">{{ part2Pl }}</div>
                 </div>
                 <ng-template #nextInput>
                     <div class="sentence__displayed-word-pl">
                         <div class="sentence__displayed-word sentence__displayed-sentence">{{ part1Pl }}</div>
                         <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
-                            class="sentence__input sentence__input-pl p-inputtext-sm" [formControl]="enteredGap" />
+                            class="sentence__input sentence__input-pl p-inputtext-sm" [formControl]="enteredGap"
+                            (input)="enteredGap.setValue(enteredGap.value.toLowerCase())" />
                         <div class="sentence__displayed-word sentence__displayed-sentence">{{ part2Pl }}</div>
                     </div>
                 </ng-template>
