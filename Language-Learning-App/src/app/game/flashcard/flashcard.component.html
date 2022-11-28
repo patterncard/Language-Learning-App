@@ -24,11 +24,13 @@
             <div>
                 <div *ngIf="!isChecked; else nextInput">
                     <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
-                        class="flashcard__input p-inputtext-lg" [formControl]="enteredWord" />
+                        class="flashcard__input p-inputtext-lg" [formControl]="enteredWord"
+                        (input)="enteredWord.setValue(enteredWord.value.toLowerCase())" />
                 </div>
                 <ng-template #nextInput>
                     <input type="text" pInputText placeholder="Enter your answer" styleClass="p-component"
-                        class="flashcard__input p-inputtext-lg" [formControl]="enteredWord" />
+                        class="flashcard__input p-inputtext-lg" [formControl]="enteredWord"
+                        (input)="enteredWord.setValue(enteredWord.value.toLowerCase())" />
                 </ng-template>
             </div>
             <div class="flashcard__button-container">
