@@ -9,14 +9,6 @@
         <div class="sentence__content">
             <div class="sentence__displayed-word sentence__displayed-word-en">{{ part1En }} {{ gapEn }} {{ part2En }}
             </div>
-            <div class="sentence__feedback">
-                <div *ngIf="isChecked">
-                    <div *ngIf="isCorrectAnswear; else incorrect" class="correct">correct</div>
-                    <ng-template #incorrect>
-                        <div class="incorrect">incorrect</div>
-                    </ng-template>
-                </div>
-            </div>
             <div>
                 <div *ngIf="!isChecked; else nextInput" class="sentence__displayed-word-pl">
                     <div class="sentence__displayed-word sentence__displayed-sentence">{{ part1Pl }}</div>
@@ -34,6 +26,14 @@
                         <div class="sentence__displayed-word sentence__displayed-sentence">{{ part2Pl }}</div>
                     </div>
                 </ng-template>
+            </div>
+            <div class="sentence__feedback">
+                <div *ngIf="isChecked">
+                    <div *ngIf="isCorrectAnswear; else incorrect" class="correct">correct</div>
+                    <ng-template #incorrect>
+                        <div class="incorrect">incorrect</div>
+                    </ng-template>
+                </div>
             </div>
             <div class="sentence__button-container">
                 <div *ngIf="!isChecked; else next">
