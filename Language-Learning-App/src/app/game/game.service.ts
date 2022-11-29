@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class GameService {
+	constructor(private router: Router) {}
 	selectedCategory: any;
 	selectedGameRoutes: any;
 	selectedGameType: any;
@@ -13,6 +15,37 @@ export class GameService {
 	words: any;
 	sentences: any;
 	images: any;
+
+	rondomizeGameType() {
+		const gameCount = this.gameRoutes.length;
+		const randomType = Math.floor(Math.random() * gameCount);
+		console.log(randomType);
+		if (randomType === 0) {
+			this.chooseFlashcards();
+		} else if (randomType === 1) {
+			this.chooseSentence();
+		} else {
+			this.chooseImage();
+		}
+	}
+
+	chooseFlashcards() {
+		this.selectedGameRoutes = this.gameRoutes[0];
+		this.selectedGameType = this.words;
+		this.router.navigateByUrl('/categories');
+	}
+
+	chooseSentence() {
+		this.selectedGameRoutes = this.gameRoutes[1];
+		this.selectedGameType = this.sentences;
+		this.router.navigateByUrl('/categories');
+	}
+
+	chooseImage() {
+		this.selectedGameRoutes = this.gameRoutes[2];
+		this.selectedGameType = this.images;
+		this.router.navigateByUrl('/categories');
+	}
 
 	// words = {
 	// 	food: [

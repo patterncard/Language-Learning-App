@@ -64,6 +64,7 @@ export class ImageComponent implements OnInit {
 		this.generateWord();
 		this.resetInput();
 		this.deselectAll();
+		this.gameService.rondomizeGameType();
 	}
 
 	generateWord() {

@@ -65,6 +65,7 @@ export class SentenceComponent implements OnInit {
 		this.isChecked = false;
 		this.generateSentences();
 		this.resetInput();
+		this.gameService.rondomizeGameType();
 	}
 
 	generateSentences() {

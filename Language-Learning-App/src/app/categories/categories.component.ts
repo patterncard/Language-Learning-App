@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../game/game.service';
 import { AchievementsService } from '../home/achievements.service';
@@ -10,7 +10,7 @@ import { Category } from './category.interface';
 	templateUrl: './categories.component.html',
 	styleUrls: ['./categories.component.scss'],
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private gameService: GameService,
@@ -23,6 +23,12 @@ export class CategoriesComponent {
 	unlocked3 = this.achievementsService.unlockedCategory3;
 	unlocked4 = this.achievementsService.unlockedCategory4;
 	unlocked5 = this.achievementsService.unlockedCategory5;
+
+	ngOnInit() {
+		if (this.gameService.selectedCategory!) {
+			this.goToGame();
+		}
+	}
 
 	getCategory(categoryId: number) {
 		return this.httpClient.get(

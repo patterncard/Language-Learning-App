@@ -82,6 +82,7 @@ export class FlashcardComponent implements OnInit {
 		this.isChecked = false;
 		this.generateWord();
 		this.resetInput();
+		this.gameService.rondomizeGameType();
 	}
 
 	generateWord() {
