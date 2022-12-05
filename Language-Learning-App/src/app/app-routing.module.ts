@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { CategoriesRoutingModule } from './categories/categories-routing.module';
 import { CoinsRoutingModule } from './coins/coins-routing.module';
+import { CongratsPointsRoutingModule } from './congrats/congrats-points/congrats-points-routing.module';
 import { FlashcardRoutingModule } from './game/flashcard/flashcard-routing.module';
 import { GameRoutingModule } from './game/game-routing.module';
 import { ImageRoutingModule } from './game/image/image-routing.module';
@@ -76,6 +77,13 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./game/image/image.module').then((m) => m.ImageModule),
 	},
+	{
+		path: 'congrats-points',
+		loadChildren: () =>
+			import('./congrats/congrats-points/congrats-points.module').then(
+				(m) => m.CongratsPointsModule
+			),
+	},
 ];
 
 @NgModule({
@@ -92,6 +100,7 @@ const routes: Routes = [
 		FlashcardRoutingModule,
 		SentenceRoutingModule,
 		ImageRoutingModule,
+		CongratsPointsRoutingModule,
 	],
 	exports: [RouterModule],
 })
