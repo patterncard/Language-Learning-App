@@ -36,6 +36,7 @@ export class FlashcardComponent implements OnInit {
 	isEnglishToPolish = true;
 	words: any;
 	wordsCount = 0;
+	approachesCount = 0;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
@@ -75,7 +76,6 @@ export class FlashcardComponent implements OnInit {
 				console.log(this.words[this.randomWord].attributes.en);
 			}
 		}
-		this.achievements.savePoints();
 	}
 
 	nextFlashcard() {
@@ -85,16 +85,21 @@ export class FlashcardComponent implements OnInit {
 	}
 
 	generateWord() {
-		this.getWords().subscribe((words: Words) => {
-			this.words = words.data;
-			this.wordsCount = words.data!.length;
-			this.randomWord = Math.floor(Math.random() * this.wordsCount);
-			if (this.isEnglishToPolish) {
-				this.word = this.words[this.randomWord].attributes.en;
-			} else {
-				this.word = this.words[this.randomWord].attributes.pl;
-			}
-		});
+		if (this.approachesCount === 10) {
+			this.router.navigateByUrl('congrats-points');
+		} else {
+			this.getWords().subscribe((words: Words) => {
+				this.words = words.data;
+				this.wordsCount = words.data!.length;
+				this.randomWord = Math.floor(Math.random() * this.wordsCount);
+				if (this.isEnglishToPolish) {
+					this.word = this.words[this.randomWord].attributes.en;
+				} else {
+					this.word = this.words[this.randomWord].attributes.pl;
+				}
+			});
+			this.approachesCount++;
+		}
 	}
 
 	getWords() {

@@ -9,6 +9,7 @@ export class AchievementsService {
 	token!: string;
 	decoded!: { id: string };
 	id!: string;
+	totalPoints!: number;
 	constructor(private httpClient: HttpClient) {}
 	points = 0;
 	level = 1;
@@ -31,7 +32,7 @@ export class AchievementsService {
 			.put(
 				`http://localhost:1337/api/users/${this.id}`,
 				{
-					points: this.points,
+					points: this.totalPoints,
 				},
 				{ headers: { Authorization: `Bearer ${this.token}` } }
 			)
@@ -58,5 +59,12 @@ export class AchievementsService {
 	sumPoints(newPoints: number) {
 		this.points += newPoints;
 		console.log({ points: this.points });
+	}
+
+	sumToTotalPoints(currentPoints: any) {
+		console.log(currentPoints);
+		console.log(this.points);
+		this.totalPoints = this.points + currentPoints;
+		console.log({ totalPoints: this.totalPoints });
 	}
 }

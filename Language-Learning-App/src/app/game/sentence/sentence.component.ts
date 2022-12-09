@@ -58,7 +58,6 @@ export class SentenceComponent implements OnInit {
 			this.isCorrectAnswear = false;
 			console.log(this.sentences[this.randomWord].attributes.plGap);
 		}
-		this.achievements.savePoints();
 	}
 
 	nextSentence() {

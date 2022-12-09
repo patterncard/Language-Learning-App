@@ -55,7 +55,6 @@ export class ImageComponent implements OnInit {
 		} else {
 			this.isCorrectAnswear = false;
 		}
-		this.achievementsService.savePoints();
 		this.resetInput();
 	}
 
