@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PrimeNGConfig } from 'primeng/api';
+import { AchievementsService } from 'src/app/home/achievements.service';
+import { User } from '../../home/user.interface';
+@Component({
+	selector: 'congrats-coins',
+	templateUrl: './congrats-coins.component.html',
+	styleUrls: ['./congrats-coins.component.scss'],
+})
+export class CongratsCoinsComponent implements OnInit {
+	constructor(
+		private primengConfig: PrimeNGConfig,
+		private achievementsService: AchievementsService,
+		private router: Router
+	) {}
+
+	currentPoints = 0;
+	gainedCoins = 0;
+
+	ngOnInit() {
+		this.primengConfig.ripple = true;
+		this.gainedCoins = this.achievementsService.coins;
+		this.achievementsService.getPoints().subscribe((user: User) => {
+			this.currentPoints = user.points!;
+			this.achievementsService.sumToTotalPoints(this.currentPoints);
+			this.achievementsService.savePoints();
+		});
+	}
+	continue() {
+		this.achievementsService.points = 0;
+		this.achievementsService.totalPoints = 0;
+		this.router.navigateByUrl('/home');
+	}
+}
