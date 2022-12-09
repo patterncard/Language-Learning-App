@@ -33,6 +33,7 @@ export class AchievementsService {
 				`http://localhost:1337/api/users/${this.id}`,
 				{
 					points: this.totalPoints,
+					coins: this.coins,
 				},
 				{ headers: { Authorization: `Bearer ${this.token}` } }
 			)
@@ -46,7 +47,7 @@ export class AchievementsService {
 			);
 	}
 
-	getPoints() {
+	getUser() {
 		this.decodeToken();
 		return this.httpClient.get(
 			`http://localhost:1337/api/users/${this.id}`,
@@ -59,6 +60,11 @@ export class AchievementsService {
 	sumPoints(newPoints: number) {
 		this.points += newPoints;
 		console.log({ points: this.points });
+		if (!(this.points % 30)) {
+			console.log(this.coins);
+			this.addCoins();
+			console.log(this.coins);
+		}
 	}
 
 	sumToTotalPoints(currentPoints: any) {
@@ -66,5 +72,10 @@ export class AchievementsService {
 		console.log(this.points);
 		this.totalPoints = this.points + currentPoints;
 		console.log({ totalPoints: this.totalPoints });
+	}
+
+	addCoins() {
+		this.coins += 5;
+		console.log({ coins: this.coins });
 	}
 }

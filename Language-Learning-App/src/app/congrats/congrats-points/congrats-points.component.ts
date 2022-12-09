@@ -21,7 +21,7 @@ export class CongratsPointsComponent implements OnInit {
 	ngOnInit() {
 		this.primengConfig.ripple = true;
 		this.gainedPoints = this.achievementsService.points;
-		this.achievementsService.getPoints().subscribe((user: User) => {
+		this.achievementsService.getUser().subscribe((user: User) => {
 			this.currentPoints = user.points!;
 			this.achievementsService.sumToTotalPoints(this.currentPoints);
 			this.achievementsService.savePoints();
