@@ -33,6 +33,7 @@ export class SentenceComponent implements OnInit {
 	points = 10;
 	sentences: any;
 	sentencesCount!: number;
+	approachesCount = 0;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
@@ -67,19 +68,31 @@ export class SentenceComponent implements OnInit {
 	}
 
 	generateSentences() {
-		this.getSentences().subscribe((sentences: Sentences) => {
-			this.sentences = sentences.data;
-			this.sentencesCount = sentences.data!.length;
-			this.randomWord = Math.floor(Math.random() * this.sentencesCount);
+		if (this.approachesCount === 10) {
+			this.router.navigateByUrl('congrats-points');
+		} else {
+			this.getSentences().subscribe((sentences: Sentences) => {
+				this.sentences = sentences.data;
+				this.sentencesCount = sentences.data!.length;
+				this.randomWord = Math.floor(
+					Math.random() * this.sentencesCount
+				);
 
-			this.part1En = this.sentences[this.randomWord].attributes.enPart1;
-			this.gapEn = this.sentences[this.randomWord].attributes.enGap;
-			this.part2En = this.sentences[this.randomWord].attributes.enPart2;
+				this.part1En =
+					this.sentences[this.randomWord].attributes.enPart1;
+				this.gapEn = this.sentences[this.randomWord].attributes.enGap;
+				this.part2En =
+					this.sentences[this.randomWord].attributes.enPart2;
 
-			this.part1Pl = this.sentences[this.randomWord].attributes.plPart1;
-			this.gapPl = this.sentences[this.randomWord].attributes.plGap;
-			this.part2Pl = this.sentences[this.randomWord].attributes.plPart2;
-		});
+				this.part1Pl =
+					this.sentences[this.randomWord].attributes.plPart1;
+				this.gapPl = this.sentences[this.randomWord].attributes.plGap;
+				this.part2Pl =
+					this.sentences[this.randomWord].attributes.plPart2;
+
+				this.approachesCount++;
+			});
+		}
 	}
 
 	getSentences() {
