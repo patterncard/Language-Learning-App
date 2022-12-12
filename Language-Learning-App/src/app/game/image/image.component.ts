@@ -45,6 +45,7 @@ export class ImageComponent implements OnInit {
 	}
 
 	goBackHome() {
+		this.achievementsService.points = 0;
 		this.router.navigateByUrl('/home');
 	}
 
@@ -52,7 +53,7 @@ export class ImageComponent implements OnInit {
 		this.isChecked = true;
 		if (this.selectedChoice0) {
 			this.isCorrectAnswear = true;
-			this.achievementsService.sumPoints(this.points);
+			this.achievementsService.addPoints(this.points);
 		} else {
 			this.isCorrectAnswear = false;
 		}

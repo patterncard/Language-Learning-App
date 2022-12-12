@@ -15,21 +15,26 @@ export class CongratsPointsComponent implements OnInit {
 		private router: Router
 	) {}
 
+	previousPoints = 0;
 	currentPoints = 0;
-	gainedPoints = 0;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
-		this.gainedPoints = this.achievementsService.points;
+		this.currentPoints = this.achievementsService.points;
 		this.achievementsService.getUser().subscribe((user: User) => {
-			this.currentPoints = user.points!;
-			this.achievementsService.sumToTotalPoints(this.currentPoints);
+			this.previousPoints = user.points!;
+			this.achievementsService.sumPoints(this.previousPoints);
 			this.achievementsService.savePoints();
 		});
 	}
+
 	continue() {
 		this.achievementsService.points = 0;
 		this.achievementsService.totalPoints = 0;
-		this.router.navigateByUrl('/home');
+		if (this.achievementsService.areExtraCoins === true) {
+			this.router.navigateByUrl('/congrats-coins');
+		} else {
+			this.router.navigateByUrl('/home');
+		}
 	}
 }

@@ -45,6 +45,7 @@ export class FlashcardComponent implements OnInit {
 	}
 
 	goBackHome() {
+		this.achievements.points = 0;
 		this.router.navigateByUrl('/home');
 	}
 
@@ -59,7 +60,7 @@ export class FlashcardComponent implements OnInit {
 				this.words[this.randomWord].attributes.pl
 			) {
 				this.isCorrectAnswear = true;
-				this.achievements.sumPoints(this.points);
+				this.achievements.addPoints(this.points);
 			} else {
 				this.isCorrectAnswear = false;
 				console.log(this.words[this.randomWord].attributes.pl);
@@ -70,7 +71,7 @@ export class FlashcardComponent implements OnInit {
 				this.words[this.randomWord].attributes.en
 			) {
 				this.isCorrectAnswear = true;
-				this.achievements.sumPoints(this.points);
+				this.achievements.addPoints(this.points);
 			} else {
 				this.isCorrectAnswear = false;
 				console.log(this.words[this.randomWord].attributes.en);

@@ -16,20 +16,19 @@ export class CongratsCoinsComponent implements OnInit {
 	) {}
 
 	currentCoins = 0;
-	// gainedCoins = 0;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
-		// this.gainedCoins = this.achievementsService.coins;
 		this.achievementsService.getUser().subscribe((user: User) => {
 			this.currentCoins = user.coins!;
-			this.achievementsService.addCoins();
-			this.achievementsService.savePoints();
+			this.achievementsService.sumCoins(this.currentCoins);
+			this.achievementsService.saveCoins();
 		});
 	}
 	continue() {
 		this.achievementsService.points = 0;
 		this.achievementsService.totalPoints = 0;
+		this.achievementsService.areExtraCoins = false;
 		this.router.navigateByUrl('/home');
 	}
 }

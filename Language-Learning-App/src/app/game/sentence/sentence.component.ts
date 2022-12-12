@@ -41,6 +41,7 @@ export class SentenceComponent implements OnInit {
 	}
 
 	goBackHome() {
+		this.achievements.points = 0;
 		this.router.navigateByUrl('/home');
 	}
 
@@ -54,7 +55,7 @@ export class SentenceComponent implements OnInit {
 			this.sentences[this.randomWord].attributes.plGap
 		) {
 			this.isCorrectAnswear = true;
-			this.achievements.sumPoints(this.points);
+			this.achievements.addPoints(this.points);
 		} else {
 			this.isCorrectAnswear = false;
 			console.log(this.sentences[this.randomWord].attributes.plGap);

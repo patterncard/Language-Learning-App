@@ -10,6 +10,7 @@ export class AchievementsService {
 	decoded!: { id: string };
 	id!: string;
 	totalPoints!: number;
+	areExtraCoins = false;
 	constructor(private httpClient: HttpClient) {}
 	points = 0;
 	level = 1;
@@ -26,27 +27,6 @@ export class AchievementsService {
 		this.id = this.decoded.id;
 	}
 
-	savePoints() {
-		this.decodeToken();
-		return this.httpClient
-			.put(
-				`http://localhost:1337/api/users/${this.id}`,
-				{
-					points: this.totalPoints,
-					coins: this.coins,
-				},
-				{ headers: { Authorization: `Bearer ${this.token}` } }
-			)
-			.subscribe(
-				(x) => {
-					console.log({ x });
-				},
-				(qweqweqwewy) => {
-					console.log({ qweqweqwewy });
-				}
-			);
-	}
-
 	getUser() {
 		this.decodeToken();
 		return this.httpClient.get(
@@ -57,25 +37,63 @@ export class AchievementsService {
 		);
 	}
 
-	sumPoints(newPoints: number) {
+	addPoints(newPoints: number) {
 		this.points += newPoints;
 		console.log({ points: this.points });
 		if (!(this.points % 30)) {
-			console.log(this.coins);
-			this.addCoins();
-			console.log(this.coins);
+			this.areExtraCoins = true;
 		}
 	}
 
-	sumToTotalPoints(currentPoints: any) {
-		console.log(currentPoints);
+	sumPoints(previousPoints: any) {
+		console.log(previousPoints);
 		console.log(this.points);
-		this.totalPoints = this.points + currentPoints;
+		this.totalPoints = this.points + previousPoints;
 		console.log({ totalPoints: this.totalPoints });
 	}
 
-	addCoins() {
-		this.coins += 5;
+	sumCoins(previousPoints: number) {
+		this.coins = previousPoints += 5;
 		console.log({ coins: this.coins });
+	}
+
+	savePoints() {
+		this.decodeToken();
+		return this.httpClient
+			.put(
+				`http://localhost:1337/api/users/${this.id}`,
+				{
+					points: this.totalPoints,
+				},
+				{ headers: { Authorization: `Bearer ${this.token}` } }
+			)
+			.subscribe(
+				(x) => {
+					console.log({ x });
+				},
+				(y) => {
+					console.log({ y });
+				}
+			);
+	}
+
+	saveCoins() {
+		this.decodeToken();
+		return this.httpClient
+			.put(
+				`http://localhost:1337/api/users/${this.id}`,
+				{
+					coins: this.coins,
+				},
+				{ headers: { Authorization: `Bearer ${this.token}` } }
+			)
+			.subscribe(
+				(x) => {
+					console.log({ x });
+				},
+				(y) => {
+					console.log({ y });
+				}
+			);
 	}
 }
