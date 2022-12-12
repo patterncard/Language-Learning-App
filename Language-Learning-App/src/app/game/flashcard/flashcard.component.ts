@@ -87,7 +87,11 @@ export class FlashcardComponent implements OnInit {
 
 	generateWord() {
 		if (this.approachesCount === 10) {
-			this.router.navigateByUrl('congrats-points');
+			if (this.achievements.points) {
+				this.router.navigateByUrl('congrats-points');
+			} else {
+				this.router.navigateByUrl('congrats-failure');
+			}
 		} else {
 			this.getWords().subscribe((words: Words) => {
 				this.words = words.data;

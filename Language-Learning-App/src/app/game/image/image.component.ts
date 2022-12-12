@@ -69,7 +69,11 @@ export class ImageComponent implements OnInit {
 
 	generateWord() {
 		if (this.approachesCount === 10) {
-			this.router.navigateByUrl('congrats-points');
+			if (this.achievementsService.points) {
+				this.router.navigateByUrl('congrats-points');
+			} else {
+				this.router.navigateByUrl('congrats-failure');
+			}
 		} else {
 			this.getImages().subscribe((images: Images) => {
 				this.images = images.data;

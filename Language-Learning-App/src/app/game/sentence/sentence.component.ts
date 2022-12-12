@@ -70,7 +70,11 @@ export class SentenceComponent implements OnInit {
 
 	generateSentences() {
 		if (this.approachesCount === 10) {
-			this.router.navigateByUrl('congrats-points');
+			if (this.achievements.points) {
+				this.router.navigateByUrl('congrats-points');
+			} else {
+				this.router.navigateByUrl('congrats-failure');
+			}
 		} else {
 			this.getSentences().subscribe((sentences: Sentences) => {
 				this.sentences = sentences.data;
