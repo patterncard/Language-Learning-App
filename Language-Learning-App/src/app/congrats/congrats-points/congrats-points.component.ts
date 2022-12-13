@@ -16,14 +16,15 @@ export class CongratsPointsComponent implements OnInit {
 	) {}
 
 	previousPoints = 0;
-	currentPoints = 0;
+	biggestScorePoints = 0;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
-		this.currentPoints = this.achievementsService.points;
 		this.achievementsService.getUser().subscribe((user: User) => {
 			this.previousPoints = user.points!;
 			this.achievementsService.sumPoints(this.previousPoints);
+			this.biggestScorePoints =
+				this.achievementsService.highestScorePoints;
 			this.achievementsService.savePoints();
 		});
 	}
@@ -31,10 +32,15 @@ export class CongratsPointsComponent implements OnInit {
 	continue() {
 		this.achievementsService.points = 0;
 		this.achievementsService.totalPoints = 0;
+		this.achievementsService.highestScorePoints = 0;
 		if (this.achievementsService.areExtraCoins === true) {
 			this.router.navigateByUrl('/congrats-coins');
 		} else {
-			this.router.navigateByUrl('/home');
+			if (this.achievementsService.isNextLevel) {
+				this.router.navigateByUrl('/congrats-level');
+			} else {
+				this.router.navigateByUrl('/home');
+			}
 		}
 	}
 }

@@ -5,6 +5,7 @@ import { CategoriesRoutingModule } from './categories/categories-routing.module'
 import { CoinsRoutingModule } from './coins/coins-routing.module';
 import { CongratsCoinsRoutingModule } from './congrats/congrats-coins/congrats-coins-routing.module';
 import { CongratsFailureRoutingModule } from './congrats/congrats-failure/congrats-failure-routing.module';
+import { CongratsLevelRoutingModule } from './congrats/congrats-level/congrats-level-routing.module';
 import { CongratsPointsRoutingModule } from './congrats/congrats-points/congrats-points-routing.module';
 import { FlashcardRoutingModule } from './game/flashcard/flashcard-routing.module';
 import { GameRoutingModule } from './game/game-routing.module';
@@ -100,6 +101,13 @@ const routes: Routes = [
 				(m) => m.CongratsFailureModule
 			),
 	},
+	{
+		path: 'congrats-level',
+		loadChildren: () =>
+			import('./congrats/congrats-level/congrats-level.module').then(
+				(m) => m.CongratsLevelModule
+			),
+	},
 ];
 
 @NgModule({
@@ -119,6 +127,7 @@ const routes: Routes = [
 		CongratsPointsRoutingModule,
 		CongratsCoinsRoutingModule,
 		CongratsFailureRoutingModule,
+		CongratsLevelRoutingModule,
 	],
 	exports: [RouterModule],
 })

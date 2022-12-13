@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 	level = 1;
 	coins = 0;
 	points = 0;
-	@Input() pointsUntilNext = 0;
+	pointsUntilNext = 0;
 	pointsUntilNextCount = 1000;
 
 	ngOnInit() {

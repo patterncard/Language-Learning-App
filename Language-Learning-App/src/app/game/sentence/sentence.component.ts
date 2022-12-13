@@ -63,6 +63,9 @@ export class SentenceComponent implements OnInit {
 	}
 
 	nextSentence() {
+		if (this.achievements.isNextLevel) {
+			this.router.navigateByUrl('/congrats-level');
+		}
 		this.isChecked = false;
 		this.generateSentences();
 		this.resetInput();
@@ -70,7 +73,7 @@ export class SentenceComponent implements OnInit {
 
 	generateSentences() {
 		if (this.approachesCount === 10) {
-			if (this.achievements.points) {
+			if (this.achievements.highestScorePoints) {
 				this.router.navigateByUrl('congrats-points');
 			} else {
 				this.router.navigateByUrl('congrats-failure');

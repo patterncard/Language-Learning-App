@@ -15,7 +15,7 @@
 		position: fixed;
 		height: 800px;
 		top: 50px;
-		background-color: #48d8cf;
+		background-color: #bc48d8;
 		border-radius: 50px;
 	}
 	&__texts {
@@ -60,12 +60,12 @@
 			width: 140px;
 			height: 109px;
 
-			background: #48d8cf;
+			background: #bc48d8;
 			border-radius: 15px;
 			display: flex;
 			flex-direction: column;
 		}
-		&__coins {
+		&__level {
 			font-family: "Inter";
 			font-style: normal;
 			font-weight: 700;

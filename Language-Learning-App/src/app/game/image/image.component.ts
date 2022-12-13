@@ -61,6 +61,9 @@ export class ImageComponent implements OnInit {
 	}
 
 	nextImage() {
+		if (this.achievementsService.isNextLevel) {
+			this.router.navigateByUrl('/congrats-level');
+		}
 		this.isChecked = false;
 		this.generateWord();
 		this.resetInput();
@@ -69,7 +72,8 @@ export class ImageComponent implements OnInit {
 
 	generateWord() {
 		if (this.approachesCount === 10) {
-			if (this.achievementsService.points) {
+			console.log(this.achievementsService.highestScorePoints);
+			if (this.achievementsService.highestScorePoints) {
 				this.router.navigateByUrl('congrats-points');
 			} else {
 				this.router.navigateByUrl('congrats-failure');
