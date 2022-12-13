@@ -36,6 +36,7 @@ export class ImageComponent implements OnInit {
 	selectedChoice1 = false;
 	selectedChoice2 = false;
 	selectedChoice3 = false;
+	approachesCount = 0;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
@@ -44,6 +45,7 @@ export class ImageComponent implements OnInit {
 	}
 
 	goBackHome() {
+		this.achievementsService.points = 0;
 		this.router.navigateByUrl('/home');
 	}
 
@@ -51,15 +53,17 @@ export class ImageComponent implements OnInit {
 		this.isChecked = true;
 		if (this.selectedChoice0) {
 			this.isCorrectAnswear = true;
-			this.achievementsService.sumPoints(this.points);
+			this.achievementsService.addPoints(this.points);
 		} else {
 			this.isCorrectAnswear = false;
 		}
-		this.achievementsService.savePoints();
 		this.resetInput();
 	}
 
 	nextImage() {
+		if (this.achievementsService.isNextLevel) {
+			this.router.navigateByUrl('/congrats-level');
+		}
 		this.isChecked = false;
 		this.generateWord();
 		this.resetInput();
@@ -67,28 +71,39 @@ export class ImageComponent implements OnInit {
 	}
 
 	generateWord() {
-		this.getImages().subscribe((images: Images) => {
-			this.images = images.data;
-			this.imagesCount = images.data!.length;
-			const randomNumbers = [];
-			while (randomNumbers.length < 4) {
-				const random = Math.floor(Math.random() * this.imagesCount);
-				if (randomNumbers.indexOf(random) === -1) {
-					randomNumbers.push(random);
-					this.generatedWords.push(
-						this.images[random].attributes.image.data.attributes.url
-					);
-					this.generatedWordsInPolish.push(
-						this.images[random].attributes.pl
-					);
-				}
+		if (this.approachesCount === 10) {
+			console.log(this.achievementsService.highestScorePoints);
+			if (this.achievementsService.highestScorePoints) {
+				this.router.navigateByUrl('congrats-points');
+			} else {
+				this.router.navigateByUrl('congrats-failure');
 			}
-			this.wordInPolishToDisplay = this.generatedWordsInPolish[0];
-			this.word0 = `http://localhost:1337${this.generatedWords[0]}`;
-			this.word1 = `http://localhost:1337${this.generatedWords[1]}`;
-			this.word2 = `http://localhost:1337${this.generatedWords[2]}`;
-			this.word3 = `http://localhost:1337${this.generatedWords[3]}`;
-		});
+		} else {
+			this.getImages().subscribe((images: Images) => {
+				this.images = images.data;
+				this.imagesCount = images.data!.length;
+				const randomNumbers = [];
+				while (randomNumbers.length < 4) {
+					const random = Math.floor(Math.random() * this.imagesCount);
+					if (randomNumbers.indexOf(random) === -1) {
+						randomNumbers.push(random);
+						this.generatedWords.push(
+							this.images[random].attributes.image.data.attributes
+								.url
+						);
+						this.generatedWordsInPolish.push(
+							this.images[random].attributes.pl
+						);
+					}
+				}
+				this.wordInPolishToDisplay = this.generatedWordsInPolish[0];
+				this.word0 = `http://localhost:1337${this.generatedWords[0]}`;
+				this.word1 = `http://localhost:1337${this.generatedWords[1]}`;
+				this.word2 = `http://localhost:1337${this.generatedWords[2]}`;
+				this.word3 = `http://localhost:1337${this.generatedWords[3]}`;
+				this.approachesCount++;
+			});
+		}
 	}
 
 	getImages() {

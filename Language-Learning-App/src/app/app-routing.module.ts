@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { CategoriesRoutingModule } from './categories/categories-routing.module';
 import { CoinsRoutingModule } from './coins/coins-routing.module';
+import { CongratsCoinsRoutingModule } from './congrats/congrats-coins/congrats-coins-routing.module';
+import { CongratsFailureRoutingModule } from './congrats/congrats-failure/congrats-failure-routing.module';
+import { CongratsLevelRoutingModule } from './congrats/congrats-level/congrats-level-routing.module';
+import { CongratsPointsRoutingModule } from './congrats/congrats-points/congrats-points-routing.module';
 import { FlashcardRoutingModule } from './game/flashcard/flashcard-routing.module';
 import { GameRoutingModule } from './game/game-routing.module';
 import { ImageRoutingModule } from './game/image/image-routing.module';
@@ -76,6 +80,34 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./game/image/image.module').then((m) => m.ImageModule),
 	},
+	{
+		path: 'congrats-points',
+		loadChildren: () =>
+			import('./congrats/congrats-points/congrats-points.module').then(
+				(m) => m.CongratsPointsModule
+			),
+	},
+	{
+		path: 'congrats-coins',
+		loadChildren: () =>
+			import('./congrats/congrats-coins/congrats-coins.module').then(
+				(m) => m.CongratsCoinsModule
+			),
+	},
+	{
+		path: 'congrats-failure',
+		loadChildren: () =>
+			import('./congrats/congrats-failure/congrats-failure.module').then(
+				(m) => m.CongratsFailureModule
+			),
+	},
+	{
+		path: 'congrats-level',
+		loadChildren: () =>
+			import('./congrats/congrats-level/congrats-level.module').then(
+				(m) => m.CongratsLevelModule
+			),
+	},
 ];
 
 @NgModule({
@@ -92,6 +124,10 @@ const routes: Routes = [
 		FlashcardRoutingModule,
 		SentenceRoutingModule,
 		ImageRoutingModule,
+		CongratsPointsRoutingModule,
+		CongratsCoinsRoutingModule,
+		CongratsFailureRoutingModule,
+		CongratsLevelRoutingModule,
 	],
 	exports: [RouterModule],
 })

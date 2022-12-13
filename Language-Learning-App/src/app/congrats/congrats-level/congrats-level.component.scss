@@ -1,0 +1,96 @@
+.congrats {
+	display: flex;
+	flex-direction: column;
+	vertical-align: auto;
+	align-items: center;
+	width: 100%;
+	height: 980px;
+	&__data {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		width: 700px;
+		position: fixed;
+		height: 800px;
+		top: 50px;
+		background-color: #bc48d8;
+		border-radius: 50px;
+	}
+	&__texts {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		color: white;
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 40px;
+		line-height: 26px;
+	}
+	&__additional {
+		font-family: "Inter";
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		line-height: 26px;
+		margin-top: 20px;
+	}
+	&__frame {
+		width: 150px;
+		height: 150px;
+		background: white;
+		border-radius: 15px;
+		&__text {
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 26px;
+			text-align: center;
+			color: #959595;
+			margin: 5px 0;
+		}
+		&__emptiness {
+			position: relative;
+			left: 5px;
+			width: 140px;
+			height: 109px;
+
+			background: #bc48d8;
+			border-radius: 15px;
+			display: flex;
+			flex-direction: column;
+		}
+		&__level {
+			font-family: "Inter";
+			font-style: normal;
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 26px;
+			text-align: center;
+			color: #ffffff;
+			margin: 40px 0;
+		}
+	}
+	&__image {
+		width: 170px;
+		height: 172px;
+	}
+	&__button {
+		background-color: #93e85f;
+		border: #93e85f;
+		width: 315px;
+		font-size: 24px;
+	}
+
+	&__texts,
+	&__frame,
+	&__image,
+	&__button {
+		margin: 40px 0;
+	}
+}

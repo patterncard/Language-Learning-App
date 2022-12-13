@@ -36,6 +36,7 @@ export class FlashcardComponent implements OnInit {
 	isEnglishToPolish = true;
 	words: any;
 	wordsCount = 0;
+	approachesCount = 0;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
@@ -44,6 +45,7 @@ export class FlashcardComponent implements OnInit {
 	}
 
 	goBackHome() {
+		this.achievements.points = 0;
 		this.router.navigateByUrl('/home');
 	}
 
@@ -58,7 +60,7 @@ export class FlashcardComponent implements OnInit {
 				this.words[this.randomWord].attributes.pl
 			) {
 				this.isCorrectAnswear = true;
-				this.achievements.sumPoints(this.points);
+				this.achievements.addPoints(this.points);
 			} else {
 				this.isCorrectAnswear = false;
 				console.log(this.words[this.randomWord].attributes.pl);
@@ -69,32 +71,43 @@ export class FlashcardComponent implements OnInit {
 				this.words[this.randomWord].attributes.en
 			) {
 				this.isCorrectAnswear = true;
-				this.achievements.sumPoints(this.points);
+				this.achievements.addPoints(this.points);
 			} else {
 				this.isCorrectAnswear = false;
 				console.log(this.words[this.randomWord].attributes.en);
 			}
 		}
-		this.achievements.savePoints();
 	}
 
 	nextFlashcard() {
+		if (this.achievements.isNextLevel) {
+			this.router.navigateByUrl('/congrats-level');
+		}
 		this.isChecked = false;
 		this.generateWord();
 		this.resetInput();
 	}
 
 	generateWord() {
-		this.getWords().subscribe((words: Words) => {
-			this.words = words.data;
-			this.wordsCount = words.data!.length;
-			this.randomWord = Math.floor(Math.random() * this.wordsCount);
-			if (this.isEnglishToPolish) {
-				this.word = this.words[this.randomWord].attributes.en;
+		if (this.approachesCount === 10) {
+			if (this.achievements.highestScorePoints) {
+				this.router.navigateByUrl('congrats-points');
 			} else {
-				this.word = this.words[this.randomWord].attributes.pl;
+				this.router.navigateByUrl('congrats-failure');
 			}
-		});
+		} else {
+			this.getWords().subscribe((words: Words) => {
+				this.words = words.data;
+				this.wordsCount = words.data!.length;
+				this.randomWord = Math.floor(Math.random() * this.wordsCount);
+				if (this.isEnglishToPolish) {
+					this.word = this.words[this.randomWord].attributes.en;
+				} else {
+					this.word = this.words[this.randomWord].attributes.pl;
+				}
+			});
+			this.approachesCount++;
+		}
 	}
 
 	getWords() {
