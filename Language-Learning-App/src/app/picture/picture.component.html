@@ -7,11 +7,13 @@
     </div>
     <div class="picture__container">
         <div class="picture__module">
+            <input type="file" name="files" (change)="onFileSelected($event)" />
+            <input type="submit" value="Submit" />
             <div>
                 <img class="picture__image" src="https://via.placeholder.com/200?text=user+image" alt="Username">
             </div>
             <button pButton pRipple type="button" label="Update"
-                class="picture__button p-button-rounded p-button-lg p-button-raised" (click)="update()"></button>
+                class="picture__button p-button-rounded p-button-lg p-button-raised" (click)="onUpdate()"></button>
         </div>
     </div>
 </div>
