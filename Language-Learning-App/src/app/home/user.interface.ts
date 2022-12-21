@@ -4,4 +4,7 @@ export class User {
 	points?: number;
 	level?: number;
 	coins?: number;
+	avatar?: {
+		url: string;
+	};
 }

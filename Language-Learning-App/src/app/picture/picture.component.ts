@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import jwt_decode from 'jwt-decode';
 import { Picture } from './picture.interface';
+import { AchievementsService } from '../home/achievements.service';
+import { User } from '../home/user.interface';
 
 @Component({
 	selector: 'picture',
@@ -14,7 +16,8 @@ export class PictureComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private primengConfig: PrimeNGConfig,
-		private httpClient: HttpClient
+		private httpClient: HttpClient,
+		private achievements: AchievementsService
 	) {}
 
 	token!: string;
@@ -23,9 +26,14 @@ export class PictureComponent implements OnInit {
 	avatarUrl!: string;
 	selectedFile!: any;
 	picture!: Picture[];
+	username: any;
 
 	ngOnInit() {
 		this.primengConfig.ripple = true;
+		this.achievements.getUser().subscribe((user: User) => {
+			this.username = user.username!;
+			this.avatarUrl = user.avatar?.url!;
+		});
 	}
 
 	onFileSelected(event: any) {
@@ -60,6 +68,12 @@ export class PictureComponent implements OnInit {
 						.subscribe(
 							(res) => {
 								console.log(res);
+								this.achievements
+									.getUser()
+									.subscribe((user: User) => {
+										this.username = user.username!;
+										this.avatarUrl = user.avatar?.url!;
+									});
 							},
 							(e) => {
 								console.log(e);

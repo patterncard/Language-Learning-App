@@ -8,7 +8,13 @@
     <div class="picture__container">
         <div class="picture__module">
             <div>
-                <img class="picture__image" src="https://via.placeholder.com/200?text=user+image" alt="Username">
+                <div *ngIf="avatarUrl; else placeholder">
+                    <img class="picture__image" src="http://localhost:1337{{avatarUrl}}" alt="Username">
+                </div>
+                <ng-template #placeholder>
+                    <img class="picture__image" src="https://via.placeholder.com/100?text={{username}}" alt="Username">
+                </ng-template>
+
             </div>
             <input class="picture__input-file" type="file" name="files" (change)="onFileSelected($event)" />
             <button pButton pRipple type="button" label="Update"

@@ -11,7 +11,7 @@ export class GameComponent implements OnInit {
 	constructor(private router: Router, private gameService: GameService) {}
 
 	ngOnInit() {
-		// this.rondomizeGameType();
+		this.rondomizeGameType();
 	}
 
 	rondomizeGameType() {

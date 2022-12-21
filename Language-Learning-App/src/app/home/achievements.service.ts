@@ -37,7 +37,7 @@ export class AchievementsService {
 	getUser() {
 		this.decodeToken();
 		return this.httpClient.get(
-			`http://localhost:1337/api/users/${this.id}`,
+			`http://localhost:1337/api/users/${this.id}?populate=*`,
 			{
 				headers: { Authorization: `Bearer ${this.token}` },
 			}
