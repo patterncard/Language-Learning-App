@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 	points = 0;
 	pointsUntilNext = 0;
 	pointsUntilNextCount = 1000;
+	avatarUrl!: string;
 
 	ngOnInit() {
 		this.level = this.achievements.level;
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 			this.username = user.username!;
 			this.level = user.level!;
 			this.coins = user.coins!;
+			this.avatarUrl = user.avatar?.url!;
 		});
 	}
 	ngOnDestroy() {}

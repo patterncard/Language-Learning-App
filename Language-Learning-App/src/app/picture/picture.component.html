@@ -1,3 +1,24 @@
 <div class="picture">
-    picture component
+    <div class="picture__top-bar">
+        <button class="picture__go-back" (click)="goBackToSettings()">
+            <img src="./../../assets/img/arrowhead.png" alt="">
+        </button>
+        <span class="picture__title">Change picture</span>
+    </div>
+    <div class="picture__container">
+        <div class="picture__module">
+            <div>
+                <div *ngIf="avatarUrl; else placeholder">
+                    <img class="picture__image" src="http://localhost:1337{{avatarUrl}}" alt="Username">
+                </div>
+                <ng-template #placeholder>
+                    <img class="picture__image" src="https://via.placeholder.com/100?text={{username}}" alt="Username">
+                </ng-template>
+
+            </div>
+            <input class="picture__input-file" type="file" name="files" (change)="onFileSelected($event)" />
+            <button pButton pRipple type="button" label="Update"
+                class="picture__button p-button-rounded p-button-lg p-button-raised" (click)="onUpload()"></button>
+        </div>
+    </div>
 </div>

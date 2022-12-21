@@ -5,7 +5,16 @@
     <div class="home__profile">
         <div class="home__data">
             <div>
-                <img class="home__avatar" src="https://via.placeholder.com/100?text=user+image" alt="Username">
+                <div>
+                    <div *ngIf="avatarUrl; else placeholder">
+                        <img class="home__avatar" src="http://localhost:1337{{avatarUrl}}" alt="Username">
+                    </div>
+                    <ng-template #placeholder>
+                        <img class="home__avatar" src="https://via.placeholder.com/100?text={{username}}"
+                            alt="Username">
+                    </ng-template>
+
+                </div>
             </div>
             <div class="home__scores">
                 <div class="home__username">
