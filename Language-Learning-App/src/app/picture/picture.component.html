@@ -7,13 +7,20 @@
     </div>
     <div class="picture__container">
         <div class="picture__module">
-            <input type="file" name="files" (change)="onFileSelected($event)" />
-            <input type="submit" value="Submit" />
             <div>
                 <img class="picture__image" src="https://via.placeholder.com/200?text=user+image" alt="Username">
             </div>
+
+
+            <!-- <p-button label="Choose" icon="pi pi-plus"> -->
+            <label class="custom-file-upload">
+                Choose
+                <input class="picture__input-file" type="file" name="files" (change)="onFileSelected($event)" />
+            </label>
+            <!-- </p-button> -->
+
             <button pButton pRipple type="button" label="Update"
-                class="picture__button p-button-rounded p-button-lg p-button-raised" (click)="onUpdate()"></button>
+                class="picture__button p-button-rounded p-button-lg p-button-raised" (click)="onUpload()"></button>
         </div>
     </div>
 </div>

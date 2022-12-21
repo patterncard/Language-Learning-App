@@ -3,9 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import jwt_decode from 'jwt-decode';
-import { Images } from '../game/image/images.interface';
 import { Picture } from './picture.interface';
-import { publishFacade } from '@angular/compiler';
 
 @Component({
 	selector: 'picture',
@@ -35,7 +33,7 @@ export class PictureComponent implements OnInit {
 		this.selectedFile = <File>event.target.files[0];
 	}
 
-	onUpdate() {
+	onUpload() {
 		this.decodeToken();
 		const fd = new FormData();
 		fd.append('files', this.selectedFile, this.selectedFile.name);
