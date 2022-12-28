@@ -34,7 +34,7 @@ export class CongratsCoinsComponent implements OnInit {
 		if (this.achievementsService.isNextLevel) {
 			this.router.navigateByUrl('/congrats-level');
 		} else {
-			this.router.navigateByUrl('/home');
+			this.router.navigateByUrl('/highscore');
 		}
 	}
 }
