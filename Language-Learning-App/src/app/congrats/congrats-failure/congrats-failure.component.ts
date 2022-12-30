@@ -22,6 +22,6 @@ export class CongratsFailureComponent implements OnInit {
 		this.achievementsService.points = 0;
 		this.achievementsService.totalPoints = 0;
 		this.achievementsService.areExtraCoins = false;
-		this.router.navigateByUrl('/home');
+		this.router.navigateByUrl('/highscore');
 	}
 }

@@ -1,1 +1,30 @@
-Highscore component
+<div class="highscore">
+    <div class="highscore__top-bar">
+        <button class="highscore__go-back" (click)="goBackHome()">
+            <img src="./../../assets/img/arrowhead.png" alt="">
+        </button>
+        <span class="highscore__title">Highscore table</span>
+    </div>
+    <div class="highscore__container">
+        <div class="highscore__module">
+            <div>
+                <table>
+                    <thead>
+                        <th>Rank</th>
+                        <th>Score</th>
+                        <th>Username</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let highscore of highscores; let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{highscore.points}}</td>
+                            <td>{{highscore.username}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button pButton pRipple type="button" label="Continue"
+                class="highscore__button p-button-rounded p-button-lg p-button-raised" (click)="onContinue()"></button>
+        </div>
+    </div>
+</div>

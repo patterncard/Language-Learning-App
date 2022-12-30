@@ -38,6 +38,6 @@ export class CongratsLevelComponent implements OnInit {
 		this.currentLevel = 0;
 		this.previousLevel = 0;
 		this.achievementsService.isNextLevel = false;
-		this.router.navigateByUrl('/home');
+		this.router.navigateByUrl('/highscore');
 	}
 }
