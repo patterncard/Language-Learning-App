@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'coins',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
 	styleUrls: ['./coins.component.scss'],
 })
 export class CoinsComponent {
-	constructor() {}
+	constructor(private router: Router) {}
+
+	goBackToSettings() {
+		this.router.navigateByUrl('/settings');
+	}
 }
