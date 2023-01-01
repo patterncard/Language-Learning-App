@@ -2,13 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
+import { GameService } from '../game/game.service';
 import { User } from './user.interface';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AchievementsService {
-	constructor(private httpClient: HttpClient, private router: Router) {}
+	constructor(
+		private httpClient: HttpClient,
+		private router: Router,
+		private gameService: GameService
+	) {}
 	token!: string;
 	decoded!: { id: string };
 	id!: string;
@@ -51,6 +56,9 @@ export class AchievementsService {
 			this.highestScorePoints = this.points;
 		if (!(this.highestScorePoints % 100)) {
 			this.areExtraCoins = true;
+		}
+		if (!(this.highestScorePoints % 20)) {
+			this.unlockNextCategory();
 		}
 		this.getPoints();
 	}
@@ -172,4 +180,67 @@ export class AchievementsService {
 				}
 			);
 	}
+
+	unlockNextCategory() {
+		this.decodeToken();
+		if (
+			this.unlockedCategory1 &&
+			this.unlockedCategory2 &&
+			!this.unlockedCategory3 &&
+			this.gameService.selectedCategory === 'family'
+		) {
+			this.unlockedCategory3 = true;
+			this.httpClient
+				.put(
+					`http://localhost:1337/api/users/${this.id}`,
+					{
+						isanimalsunlocked: true,
+					},
+					{ headers: { Authorization: `Bearer ${this.token}` } }
+				)
+				.subscribe();
+		}
+		if (
+			this.unlockedCategory1 &&
+			!this.unlockedCategory2 &&
+			this.gameService.selectedCategory === 'home'
+		) {
+			this.unlockedCategory2 = true;
+			this.httpClient
+				.put(
+					`http://localhost:1337/api/users/${this.id}`,
+					{
+						isfamilyunlocked: true,
+					},
+					{ headers: { Authorization: `Bearer ${this.token}` } }
+				)
+				.subscribe();
+		}
+		if (
+			!this.unlockedCategory1 &&
+			this.gameService.selectedCategory === 'food'
+		) {
+			this.unlockedCategory1 = true;
+			this.httpClient
+				.put(
+					`http://localhost:1337/api/users/${this.id}`,
+					{
+						ishomeunlocked: true,
+					},
+					{ headers: { Authorization: `Bearer ${this.token}` } }
+				)
+				.subscribe();
+		}
+	}
+
+	// saveUnlockedCategory() {
+	// 	this.decodeToken();
+	// 	this.httpClient.put(
+	// 		`http://localhost:1337/api/users/?filters\[categories\][name][$eq]=${this.gameService.selectedCategory}&populate=*`,
+	// 		{
+	// 			categories: true,
+	// 		},
+	// 		{ headers: { Authorization: `Bearer ${this.token}` } }
+	// 	);
+	// }
 }

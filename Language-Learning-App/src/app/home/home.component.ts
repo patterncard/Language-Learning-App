@@ -32,6 +32,20 @@ export class HomeComponent implements OnInit, OnDestroy {
 			this.level = user.level!;
 			this.coins = user.coins!;
 			this.avatarUrl = user.avatar?.url!;
+
+			this.achievements.unlockedCategory1 = user.ishomeunlocked!;
+			this.achievements.unlockedCategory2 = user.isfamilyunlocked!;
+			this.achievements.unlockedCategory3 = user.isanimalsunlocked!;
+			// this.achievements.unlockedCategory4 = user.ishomophonesunlocked!;
+			// console.log(
+			// 	'this.achievements.unlockedCategory1: ',
+			// 	this.achievements.unlockedCategory1
+			// );
+			// this.achievements.unlockedCategory5 = user.istransitionunlocked!;
+			// console.log(
+			// 	'this.achievements.unlockedCategory1: ',
+			// 	this.achievements.unlockedCategory1
+			// );
 		});
 	}
 	ngOnDestroy() {}

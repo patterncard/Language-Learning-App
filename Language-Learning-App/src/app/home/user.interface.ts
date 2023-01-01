@@ -7,4 +7,9 @@ export class User {
 	avatar?: {
 		url: string;
 	};
+	ishomeunlocked?: boolean;
+	isfamilyunlocked?: boolean;
+	isanimalsunlocked?: boolean;
+	ishomophonesunlocked?: boolean;
+	istransitionunlocked?: boolean;
 }
