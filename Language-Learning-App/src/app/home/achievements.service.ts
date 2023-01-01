@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 import { GameService } from '../game/game.service';
 import { User } from './user.interface';
@@ -11,7 +10,6 @@ import { User } from './user.interface';
 export class AchievementsService {
 	constructor(
 		private httpClient: HttpClient,
-		private router: Router,
 		private gameService: GameService
 	) {}
 	token!: string;
@@ -183,6 +181,7 @@ export class AchievementsService {
 
 	unlockNextCategory() {
 		this.decodeToken();
+
 		if (
 			this.unlockedCategory1 &&
 			this.unlockedCategory2 &&
@@ -200,6 +199,7 @@ export class AchievementsService {
 				)
 				.subscribe();
 		}
+
 		if (
 			this.unlockedCategory1 &&
 			!this.unlockedCategory2 &&
@@ -216,6 +216,7 @@ export class AchievementsService {
 				)
 				.subscribe();
 		}
+
 		if (
 			!this.unlockedCategory1 &&
 			this.gameService.selectedCategory === 'food'
@@ -232,15 +233,4 @@ export class AchievementsService {
 				.subscribe();
 		}
 	}
-
-	// saveUnlockedCategory() {
-	// 	this.decodeToken();
-	// 	this.httpClient.put(
-	// 		`http://localhost:1337/api/users/?filters\[categories\][name][$eq]=${this.gameService.selectedCategory}&populate=*`,
-	// 		{
-	// 			categories: true,
-	// 		},
-	// 		{ headers: { Authorization: `Bearer ${this.token}` } }
-	// 	);
-	// }
 }

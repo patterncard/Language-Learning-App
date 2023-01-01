@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { CategoriesRoutingModule } from './categories/categories-routing.module';
 import { CoinsRoutingModule } from './coins/coins-routing.module';
+import { CongratsCategoryRoutingModule } from './congrats/congrats-category/congrats-category-routing.module';
 import { CongratsCoinsRoutingModule } from './congrats/congrats-coins/congrats-coins-routing.module';
 import { CongratsFailureRoutingModule } from './congrats/congrats-failure/congrats-failure-routing.module';
 import { CongratsLevelRoutingModule } from './congrats/congrats-level/congrats-level-routing.module';
@@ -108,6 +109,13 @@ const routes: Routes = [
 				(m) => m.CongratsLevelModule
 			),
 	},
+	{
+		path: 'congrats-category',
+		loadChildren: () =>
+			import(
+				'./congrats/congrats-category/congrats-category.module'
+			).then((m) => m.CongratsCategoryModule),
+	},
 ];
 
 @NgModule({
@@ -128,6 +136,7 @@ const routes: Routes = [
 		CongratsCoinsRoutingModule,
 		CongratsFailureRoutingModule,
 		CongratsLevelRoutingModule,
+		CongratsCategoryRoutingModule,
 	],
 	exports: [RouterModule],
 })
