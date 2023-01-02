@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { AchievementsService } from 'src/app/home/achievements.service';
@@ -8,7 +8,7 @@ import { User } from '../../home/user.interface';
 	templateUrl: './congrats-level.component.html',
 	styleUrls: ['./congrats-level.component.scss'],
 })
-export class CongratsLevelComponent implements OnInit {
+export class CongratsLevelComponent implements OnInit, OnDestroy {
 	constructor(
 		private primengConfig: PrimeNGConfig,
 		private achievementsService: AchievementsService,
@@ -30,7 +30,16 @@ export class CongratsLevelComponent implements OnInit {
 			this.achievementsService.saveLevel();
 		});
 	}
+
 	continue() {
+		if (this.achievementsService.isNextCategoryUnlocked) {
+			this.router.navigateByUrl('/congrats-category');
+		} else {
+			this.router.navigateByUrl('/highscore');
+		}
+	}
+
+	ngOnDestroy() {
 		this.achievementsService.points = 0;
 		this.achievementsService.totalPoints = 0;
 		this.achievementsService.highestScorePoints = 0;
@@ -38,6 +47,5 @@ export class CongratsLevelComponent implements OnInit {
 		this.currentLevel = 0;
 		this.previousLevel = 0;
 		this.achievementsService.isNextLevel = false;
-		this.router.navigateByUrl('/highscore');
 	}
 }

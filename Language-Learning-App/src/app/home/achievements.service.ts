@@ -30,6 +30,7 @@ export class AchievementsService {
 	highestScorePoints = 0;
 	isNextLevel = false;
 	currentPoints = 0;
+	isNextCategoryUnlocked = false;
 
 	decodeToken() {
 		this.token = localStorage.getItem('token')!;
@@ -55,7 +56,8 @@ export class AchievementsService {
 		if (!(this.highestScorePoints % 100)) {
 			this.areExtraCoins = true;
 		}
-		if (!(this.highestScorePoints % 20)) {
+		if (!(this.highestScorePoints % 50)) {
+			this.isNextCategoryUnlocked = true;
 			this.unlockNextCategory();
 		}
 		this.getPoints();
