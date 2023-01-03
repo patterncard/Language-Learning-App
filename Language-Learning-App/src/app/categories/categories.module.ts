@@ -10,7 +10,7 @@ import { CoinsExchangeComponent } from './coins-exchange/coins-exchange.componen
 import { ButtonModule } from 'primeng/button';
 
 @NgModule({
-	declarations: [CategoriesComponent],
+	declarations: [CategoriesComponent, CoinsExchangeComponent],
 	imports: [
 		CommonModule,
 		DynamicDialogModule,

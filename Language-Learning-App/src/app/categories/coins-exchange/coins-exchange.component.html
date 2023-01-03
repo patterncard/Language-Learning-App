@@ -1,7 +1,11 @@
-<span>
+<span *ngIf="isReady; else notReadyText">
     Are you sure you want to unlock extra category? It will charge 100 coins.
 </span>
+<ng-template #notReadyText>To unlock extra category you have to gain at least 100 coins</ng-template>
 <div class="decision">
-    <button class="decision__yes">Yes</button>
+    <button *ngIf="isReady; else notReady" class="decision__yes">Yes</button>
+    <ng-template #notReady>
+        <button class="decision__yes__not-ready">Yes</button>
+    </ng-template>
     <button class="decision__no">No</button>
 </div>
