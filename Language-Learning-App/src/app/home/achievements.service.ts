@@ -31,6 +31,7 @@ export class AchievementsService {
 	isNextLevel = false;
 	currentPoints = 0;
 	isNextCategoryUnlocked = false;
+	isReadyForExtraCategory = false;
 
 	decodeToken() {
 		this.token = localStorage.getItem('token')!;

@@ -58,7 +58,7 @@
             </button>
         </ng-template>
 
-        <button *ngIf="!unlocked4; else play4" id="4" class="categories__tile">
+        <button *ngIf="!unlocked4; else play4" id="4" class="categories__tile" (click)="showCoinsExchange()">
             <div class="margin">
             </div>
             <ng-template #noMargin></ng-template>
@@ -81,7 +81,7 @@
             </button>
         </ng-template>
 
-        <button *ngIf="!unlocked5; else play5" id="5" class="categories__tile">
+        <button *ngIf="!unlocked5; else play5" id="5" class="categories__tile" (click)="showCoinsExchange()">
             <div class="margin">
             </div>
             <ng-template #noMargin></ng-template>

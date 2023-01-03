@@ -46,6 +46,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 			// 	'this.achievements.unlockedCategory1: ',
 			// 	this.achievements.unlockedCategory1
 			// );
+
+			if (this.coins >= 100) {
+				this.achievements.isReadyForExtraCategory = true;
+			}
 		});
 	}
 	ngOnDestroy() {}
