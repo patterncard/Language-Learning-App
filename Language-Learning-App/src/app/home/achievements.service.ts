@@ -55,10 +55,10 @@ export class AchievementsService {
 		console.log({ points: this.points });
 		if (this.points > this.highestScorePoints)
 			this.highestScorePoints = this.points;
-		if (!(this.highestScorePoints % 40)) {
+		if (!(this.highestScorePoints % 100)) {
 			this.areExtraCoins = true;
 		}
-		if (!(this.highestScorePoints % 20)) {
+		if (!(this.highestScorePoints % 50)) {
 			this.isNextCategoryUnlocked = true;
 			this.unlockNextCategory();
 		}
