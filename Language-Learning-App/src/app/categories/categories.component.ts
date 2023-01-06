@@ -31,10 +31,6 @@ export class CategoriesComponent implements OnInit {
 	isReady = false;
 
 	ngOnInit() {
-		console.log(
-			'isReady:',
-			this.achievementsService.isReadyForExtraCategory
-		);
 		this.isReady = this.achievementsService.isReadyForExtraCategory;
 	}
 

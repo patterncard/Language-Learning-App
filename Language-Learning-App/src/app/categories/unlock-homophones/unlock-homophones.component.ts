@@ -19,7 +19,6 @@ export class UnlockHomophonesComponent implements OnInit, OnDestroy {
 
 	ngOnInit(): void {
 		this.isReady = this.achievementsService.isReadyForExtraCategory;
-		console.log('this.isReady:', this.isReady);
 	}
 
 	unlockExtraCategory() {
