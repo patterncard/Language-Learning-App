@@ -27,12 +27,14 @@ export class CategoriesComponent implements OnInit {
 	unlocked4 = this.achievementsService.unlockedCategory4;
 	unlocked5 = this.achievementsService.unlockedCategory5;
 	ref!: DynamicDialogRef;
+	isReady = false;
 
 	ngOnInit() {
 		console.log(
 			'isReady:',
 			this.achievementsService.isReadyForExtraCategory
 		);
+		this.isReady = this.achievementsService.isReadyForExtraCategory;
 	}
 
 	getCategory(categoryId: number) {

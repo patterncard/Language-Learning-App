@@ -71,8 +71,8 @@ export class AchievementsService {
 		console.log({ totalPoints: this.totalPoints });
 	}
 
-	sumCoins(previousPoints: number) {
-		this.coins = previousPoints += 5;
+	sumCoins(previousCoins: number) {
+		this.coins = previousCoins += 5;
 		console.log({ coins: this.coins });
 	}
 

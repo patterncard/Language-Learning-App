@@ -1,7 +1,5 @@
 .decision {
-	&__yes,
-	&__no {
-		width: 40%;
+	&__yes {
 		margin: 5px;
 		font-size: 18px;
 		margin-top: 30px;
@@ -19,7 +17,6 @@
 		box-shadow: 5px 5px 10px 2px #a4afa2;
 	}
 	&__yes__not-ready {
-		width: 40%;
 		margin: 5px;
 		font-size: 18px;
 		margin-top: 30px;
@@ -33,6 +30,5 @@
 		border-radius: 20px;
 		padding: 0;
 		border: 0;
-		// box-shadow: 5px 5px 10px 2px #a4afa2;
 	}
 }
