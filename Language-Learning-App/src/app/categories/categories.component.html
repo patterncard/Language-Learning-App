@@ -13,7 +13,7 @@
             </div>
         </button>
 
-        <button *ngIf="!unlocked1; else play1" id="1" class="categories__tile">
+        <button *ngIf="!unlocked1; else play1" id="1" class="categories__tile locked">
             <div class="categories__tile__title">Home</div>
             <div class="categories__tile__belt">
                 <div class="categories__tile__belt-title">LOCKED</div>
@@ -28,7 +28,7 @@
             </button>
         </ng-template>
 
-        <button *ngIf="!unlocked2; else play2" id="2" class="categories__tile">
+        <button *ngIf="!unlocked2; else play2" id="2" class="categories__tile locked">
             <div class="categories__tile__title">Family</div>
             <div class="categories__tile__belt">
                 <div class="categories__tile__belt-title">LOCKED</div>
@@ -43,7 +43,7 @@
             </button>
         </ng-template>
 
-        <button *ngIf="!unlocked3; else play3" id="3" class="categories__tile">
+        <button *ngIf="!unlocked3; else play3" id="3" class="categories__tile locked">
             <div class="categories__tile__title">Animals</div>
             <div class="categories__tile__belt">
                 <div class="categories__tile__belt-title">LOCKED</div>
@@ -58,7 +58,7 @@
             </button>
         </ng-template>
 
-        <button *ngIf="!unlocked4; else play4" id="4" class="categories__tile">
+        <button *ngIf="!unlocked4; else play4" id="4" class="categories__tile" (click)="showUnlockHomophones()">
             <div class="margin">
             </div>
             <ng-template #noMargin></ng-template>
@@ -81,7 +81,7 @@
             </button>
         </ng-template>
 
-        <button *ngIf="!unlocked5; else play5" id="5" class="categories__tile">
+        <button *ngIf="!unlocked5; else play5" id="5" class="categories__tile" (click)="showUnlockTransition()">
             <div class="margin">
             </div>
             <ng-template #noMargin></ng-template>

@@ -1,9 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router, RouterEvent } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { DialogService } from 'primeng/dynamicdialog';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
-import { MessageService } from 'primeng/api';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -15,14 +14,11 @@ import { HttpClient } from '@angular/common/http';
 export class AuthComponent implements OnDestroy {
 	constructor(
 		public dialogService: DialogService,
-		public messageService: MessageService,
 		public httpClient: HttpClient,
 		private router: Router
 	) {}
 
-	// ngOnInit(): void {}
-
-	ref: DynamicDialogRef;
+	ref!: DynamicDialogRef;
 	username = new FormControl('');
 	password = new FormControl('');
 

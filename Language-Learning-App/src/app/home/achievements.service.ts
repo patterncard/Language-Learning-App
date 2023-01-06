@@ -1,14 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import jwt_decode from 'jwt-decode';
+import { GameService } from '../game/game.service';
 import { User } from './user.interface';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AchievementsService {
-	constructor(private httpClient: HttpClient, private router: Router) {}
+	isExtraCategoryUnlocked = false;
+	constructor(
+		private httpClient: HttpClient,
+		private gameService: GameService
+	) {}
 	token!: string;
 	decoded!: { id: string };
 	id!: string;
@@ -27,6 +31,8 @@ export class AchievementsService {
 	highestScorePoints = 0;
 	isNextLevel = false;
 	currentPoints = 0;
+	isNextCategoryUnlocked = false;
+	isReadyForExtraCategory = false;
 
 	decodeToken() {
 		this.token = localStorage.getItem('token')!;
@@ -52,6 +58,10 @@ export class AchievementsService {
 		if (!(this.highestScorePoints % 100)) {
 			this.areExtraCoins = true;
 		}
+		if (!(this.highestScorePoints % 50)) {
+			this.isNextCategoryUnlocked = true;
+			this.unlockNextCategory();
+		}
 		this.getPoints();
 	}
 
@@ -62,8 +72,8 @@ export class AchievementsService {
 		console.log({ totalPoints: this.totalPoints });
 	}
 
-	sumCoins(previousPoints: number) {
-		this.coins = previousPoints += 5;
+	sumCoins(previousCoins: number) {
+		this.coins = previousCoins += 5;
 		console.log({ coins: this.coins });
 	}
 
@@ -171,5 +181,98 @@ export class AchievementsService {
 					console.log({ y });
 				}
 			);
+	}
+
+	unlockNextCategory() {
+		this.decodeToken();
+
+		if (
+			this.unlockedCategory1 &&
+			this.unlockedCategory2 &&
+			!this.unlockedCategory3 &&
+			this.gameService.selectedCategory === 'family'
+		) {
+			this.unlockedCategory3 = true;
+			this.httpClient
+				.put(
+					`http://localhost:1337/api/users/${this.id}`,
+					{
+						isanimalsunlocked: true,
+					},
+					{ headers: { Authorization: `Bearer ${this.token}` } }
+				)
+				.subscribe();
+		}
+
+		if (
+			this.unlockedCategory1 &&
+			!this.unlockedCategory2 &&
+			this.gameService.selectedCategory === 'home'
+		) {
+			this.unlockedCategory2 = true;
+			this.httpClient
+				.put(
+					`http://localhost:1337/api/users/${this.id}`,
+					{
+						isfamilyunlocked: true,
+					},
+					{ headers: { Authorization: `Bearer ${this.token}` } }
+				)
+				.subscribe();
+		}
+
+		if (
+			!this.unlockedCategory1 &&
+			this.gameService.selectedCategory === 'food'
+		) {
+			this.unlockedCategory1 = true;
+			this.httpClient
+				.put(
+					`http://localhost:1337/api/users/${this.id}`,
+					{
+						ishomeunlocked: true,
+					},
+					{ headers: { Authorization: `Bearer ${this.token}` } }
+				)
+				.subscribe();
+		}
+	}
+
+	unlockHomophonesCategory() {
+		this.decodeToken();
+		this.unlockedCategory4 = true;
+		this.isExtraCategoryUnlocked = true;
+		this.httpClient
+			.put(
+				`http://localhost:1337/api/users/${this.id}`,
+				{
+					ishomophonesunlocked: true,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${this.token}`,
+					},
+				}
+			)
+			.subscribe();
+	}
+
+	unlockTransitionCategory() {
+		this.decodeToken();
+		this.unlockedCategory5 = true;
+		this.isExtraCategoryUnlocked = true;
+		this.httpClient
+			.put(
+				`http://localhost:1337/api/users/${this.id}`,
+				{
+					istransitionunlocked: true,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${this.token}`,
+					},
+				}
+			)
+			.subscribe();
 	}
 }
