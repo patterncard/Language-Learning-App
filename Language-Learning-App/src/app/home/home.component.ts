@@ -36,16 +36,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 			this.achievements.unlockedCategory1 = user.ishomeunlocked!;
 			this.achievements.unlockedCategory2 = user.isfamilyunlocked!;
 			this.achievements.unlockedCategory3 = user.isanimalsunlocked!;
-			// this.achievements.unlockedCategory4 = user.ishomophonesunlocked!;
-			// console.log(
-			// 	'this.achievements.unlockedCategory1: ',
-			// 	this.achievements.unlockedCategory1
-			// );
-			// this.achievements.unlockedCategory5 = user.istransitionunlocked!;
-			// console.log(
-			// 	'this.achievements.unlockedCategory1: ',
-			// 	this.achievements.unlockedCategory1
-			// );
+			this.achievements.unlockedCategory4 = user.ishomophonesunlocked!;
+			this.achievements.unlockedCategory5 = user.istransitionunlocked!;
 
 			if (this.coins >= 100) {
 				this.achievements.isReadyForExtraCategory = true;

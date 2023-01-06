@@ -8,6 +8,7 @@ import { User } from './user.interface';
 	providedIn: 'root',
 })
 export class AchievementsService {
+	isExtraCategoryUnlocked = false;
 	constructor(
 		private httpClient: HttpClient,
 		private gameService: GameService
@@ -54,10 +55,10 @@ export class AchievementsService {
 		console.log({ points: this.points });
 		if (this.points > this.highestScorePoints)
 			this.highestScorePoints = this.points;
-		if (!(this.highestScorePoints % 100)) {
+		if (!(this.highestScorePoints % 40)) {
 			this.areExtraCoins = true;
 		}
-		if (!(this.highestScorePoints % 50)) {
+		if (!(this.highestScorePoints % 20)) {
 			this.isNextCategoryUnlocked = true;
 			this.unlockNextCategory();
 		}
@@ -235,5 +236,43 @@ export class AchievementsService {
 				)
 				.subscribe();
 		}
+	}
+
+	unlockHomophonesCategory() {
+		this.decodeToken();
+		this.unlockedCategory4 = true;
+		this.isExtraCategoryUnlocked = true;
+		this.httpClient
+			.put(
+				`http://localhost:1337/api/users/${this.id}`,
+				{
+					ishomophonesunlocked: true,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${this.token}`,
+					},
+				}
+			)
+			.subscribe();
+	}
+
+	unlockTransitionCategory() {
+		this.decodeToken();
+		this.unlockedCategory5 = true;
+		this.isExtraCategoryUnlocked = true;
+		this.httpClient
+			.put(
+				`http://localhost:1337/api/users/${this.id}`,
+				{
+					istransitionunlocked: true,
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${this.token}`,
+					},
+				}
+			)
+			.subscribe();
 	}
 }

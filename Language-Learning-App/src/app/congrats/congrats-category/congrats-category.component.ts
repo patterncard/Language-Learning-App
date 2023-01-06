@@ -19,7 +19,11 @@ export class CongratsCategoryComponent implements OnInit, OnDestroy {
 	}
 
 	continue() {
-		this.router.navigateByUrl('/highscore');
+		if (this.achievementsService.isExtraCategoryUnlocked) {
+			this.router.navigateByUrl('/categories');
+		} else {
+			this.router.navigateByUrl('/highscore');
+		}
 	}
 
 	ngOnDestroy() {

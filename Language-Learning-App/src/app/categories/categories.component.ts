@@ -2,10 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { CoinsExchangeComponent } from './coins-exchange/coins-exchange.component';
+import { UnlockHomophonesComponent } from './unlock-homophones/unlock-homophones.component';
 import { GameService } from '../game/game.service';
 import { AchievementsService } from '../home/achievements.service';
 import { Category } from './category.interface';
+import { UnlockTransitionComponent } from './unlock-transition/unlock-transition.component';
 
 @Component({
 	selector: 'categories',
@@ -101,9 +102,18 @@ export class CategoriesComponent implements OnInit {
 		});
 	}
 
-	showCoinsExchange() {
-		this.ref = this.dialogService.open(CoinsExchangeComponent, {
-			header: 'Unlock extra category',
+	showUnlockHomophones() {
+		this.ref = this.dialogService.open(UnlockHomophonesComponent, {
+			header: 'Unlock Homophones category',
+			width: '50%',
+			contentStyle: { 'max-height': '500px', overflow: 'auto' },
+			baseZIndex: 10000,
+		});
+	}
+
+	showUnlockTransition() {
+		this.ref = this.dialogService.open(UnlockTransitionComponent, {
+			header: 'Unlock Transition category',
 			width: '50%',
 			contentStyle: { 'max-height': '500px', overflow: 'auto' },
 			baseZIndex: 10000,

@@ -1,0 +1,34 @@
+.decision {
+	&__yes {
+		margin: 5px;
+		font-size: 18px;
+		margin-top: 30px;
+		width: 300px;
+		height: 35px;
+		left: -3px;
+		top: 45px;
+		background-color: #93e85f;
+		border: #93e85f;
+		color: white;
+		border-radius: 20px;
+		padding: 0;
+		border: 0;
+		cursor: pointer;
+		box-shadow: 5px 5px 10px 2px #a4afa2;
+	}
+	&__yes__not-ready {
+		margin: 5px;
+		font-size: 18px;
+		margin-top: 30px;
+		width: 300px;
+		height: 35px;
+		left: -3px;
+		top: 45px;
+		background-color: #96c27b;
+		border: #96c27b;
+		color: rgb(204, 204, 204);
+		border-radius: 20px;
+		padding: 0;
+		border: 0;
+	}
+}
