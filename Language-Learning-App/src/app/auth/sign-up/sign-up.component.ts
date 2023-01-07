@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 
@@ -13,7 +14,8 @@ export class SignUpComponent {
 	constructor(
 		public ref: DynamicDialogRef,
 		public config: DynamicDialogConfig,
-		private httpClient: HttpClient
+		private httpClient: HttpClient,
+		private router: Router
 	) {}
 
 	// ngOnInit() { }
@@ -35,6 +37,7 @@ export class SignUpComponent {
 			.subscribe(
 				(x) => {
 					localStorage.setItem('token', x.jwt);
+					this.router.navigateByUrl('/home');
 				},
 				(qweqweqwewy) => {
 					console.log(qweqweqwewy);

@@ -20,4 +20,9 @@ export class SettingsComponent {
 	goToCoinsInfo() {
 		this.router.navigateByUrl('/coins');
 	}
+
+	logOut() {
+		localStorage.removeItem('token');
+		this.router.navigateByUrl('');
+	}
 }
