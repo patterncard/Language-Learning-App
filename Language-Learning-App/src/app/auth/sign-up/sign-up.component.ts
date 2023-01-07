@@ -18,8 +18,6 @@ export class SignUpComponent {
 		private router: Router
 	) {}
 
-	// ngOnInit() { }
-
 	username = new FormControl('');
 	email = new FormControl('');
 	password = new FormControl('');
