@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sentences",
+  "info": {
+    "singularName": "sentence",
+    "pluralName": "sentences",
+    "displayName": "sentence",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enPart1": {
+      "type": "string"
+    },
+    "enGap": {
+      "type": "string"
+    },
+    "enPart2": {
+      "type": "string"
+    },
+    "plPart1": {
+      "type": "string"
+    },
+    "plGap": {
+      "type": "string"
+    },
+    "plPart2": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    }
+  }
+}
