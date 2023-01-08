@@ -80,14 +80,14 @@ export class CategoriesComponent implements OnInit {
 	selectCategoryHomophones() {
 		this.getCategory(5).subscribe((category: Category) => {
 			this.gameService.selectedCategory = category.data?.attributes?.name;
-			this.goToGame();
+			this.router.navigateByUrl('flashcard');
 		});
 	}
 
 	selectCategoryTransitionWords() {
 		this.getCategory(6).subscribe((category: Category) => {
 			this.gameService.selectedCategory = category.data?.attributes?.name;
-			this.goToGame();
+			this.router.navigateByUrl('flashcard');
 		});
 	}
 
