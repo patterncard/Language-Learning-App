@@ -91,13 +91,6 @@ export class CategoriesComponent implements OnInit {
 		});
 	}
 
-	selectCategoryFormality() {
-		this.getCategory(7).subscribe((category: Category) => {
-			this.gameService.selectedCategory = category.data?.attributes?.name;
-			this.goToGame();
-		});
-	}
-
 	showUnlockHomophones() {
 		this.ref = this.dialogService.open(UnlockHomophonesComponent, {
 			header: 'Unlock Homophones category',
