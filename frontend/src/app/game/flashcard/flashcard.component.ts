@@ -112,7 +112,7 @@ export class FlashcardComponent implements OnInit {
 
 	getWords() {
 		return this.httpClient.get(
-			`http://localhost:1337/api/flashcards?filters\[category\][name][$eq]=${this.gameService.selectedCategory}&populate=*`
+			`https://language-learn.onrender.com/api/flashcards?filters\[category\][name][$eq]=${this.gameService.selectedCategory}&populate=*`
 		);
 	}
 

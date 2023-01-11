@@ -97,10 +97,10 @@ export class ImageComponent implements OnInit {
 					}
 				}
 				this.wordInPolishToDisplay = this.generatedWordsInPolish[0];
-				this.word0 = `http://localhost:1337${this.generatedWords[0]}`;
-				this.word1 = `http://localhost:1337${this.generatedWords[1]}`;
-				this.word2 = `http://localhost:1337${this.generatedWords[2]}`;
-				this.word3 = `http://localhost:1337${this.generatedWords[3]}`;
+				this.word0 = `https://language-learn.onrender.com${this.generatedWords[0]}`;
+				this.word1 = `https://language-learn.onrender.com${this.generatedWords[1]}`;
+				this.word2 = `https://language-learn.onrender.com${this.generatedWords[2]}`;
+				this.word3 = `https://language-learn.onrender.com${this.generatedWords[3]}`;
 				this.approachesCount++;
 			});
 		}
@@ -108,7 +108,7 @@ export class ImageComponent implements OnInit {
 
 	getImages() {
 		return this.httpClient.get(
-			`http://localhost:1337/api/images?filters\[category\][name][$eq]=${this.gameService.selectedCategory}&populate=*`
+			`https://language-learn.onrender.com/api/images?filters\[category\][name][$eq]=${this.gameService.selectedCategory}&populate=*`
 		);
 	}
 

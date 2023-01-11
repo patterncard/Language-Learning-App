@@ -24,10 +24,13 @@ export class AuthComponent implements OnDestroy {
 
 	logIn() {
 		this.httpClient
-			.post<{ jwt: string }>('http://localhost:1337/api/auth/local', {
-				identifier: this.username.value,
-				password: this.password.value,
-			})
+			.post<{ jwt: string }>(
+				'https://language-learn.onrender.com/api/auth/local',
+				{
+					identifier: this.username.value,
+					password: this.password.value,
+				}
+			)
 			.subscribe(
 				(x) => {
 					console.log(x);

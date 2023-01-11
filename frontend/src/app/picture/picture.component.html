@@ -9,10 +9,10 @@
         <div class="picture__module">
             <div>
                 <div *ngIf="avatarUrl; else placeholder">
-                    <img class="picture__image" src="http://localhost:1337{{avatarUrl}}" alt="Username">
+                    <img class="picture__image" src="https://language-learn.onrender.com{{avatarUrl}}" alt="Username">
                 </div>
                 <ng-template #placeholder>
-                    <img class="picture__image" src="https://via.placeholder.com/100?text={{username}}" alt="Username">
+                    <img class="picture__image" src="https://via.placeholder.com/150?text={{username}}" alt="Username">
                 </ng-template>
 
             </div>

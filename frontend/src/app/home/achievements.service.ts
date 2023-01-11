@@ -43,7 +43,7 @@ export class AchievementsService {
 	getUser() {
 		this.decodeToken();
 		return this.httpClient.get(
-			`http://localhost:1337/api/users/${this.id}?populate=*`,
+			`https://language-learn.onrender.com/api/users/${this.id}?populate=*`,
 			{
 				headers: { Authorization: `Bearer ${this.token}` },
 			}
@@ -85,7 +85,7 @@ export class AchievementsService {
 	getPoints() {
 		this.decodeToken();
 		this.httpClient
-			.get(`http://localhost:1337/api/users/${this.id}`, {
+			.get(`https://language-learn.onrender.com/api/users/${this.id}`, {
 				headers: { Authorization: `Bearer ${this.token}` },
 			})
 			.subscribe((user: User) => {
@@ -107,7 +107,7 @@ export class AchievementsService {
 		this.decodeToken();
 		return this.httpClient
 			.put(
-				`http://localhost:1337/api/users/${this.id}`,
+				`https://language-learn.onrender.com/api/users/${this.id}`,
 				{
 					points: this.totalPoints,
 				},
@@ -127,7 +127,7 @@ export class AchievementsService {
 		this.decodeToken();
 		return this.httpClient
 			.put(
-				`http://localhost:1337/api/users/${this.id}`,
+				`https://language-learn.onrender.com/api/users/${this.id}`,
 				{
 					points: this.points,
 				},
@@ -147,7 +147,7 @@ export class AchievementsService {
 		this.decodeToken();
 		return this.httpClient
 			.put(
-				`http://localhost:1337/api/users/${this.id}`,
+				`https://language-learn.onrender.com/api/users/${this.id}`,
 				{
 					coins: this.coins,
 				},
@@ -167,7 +167,7 @@ export class AchievementsService {
 		this.decodeToken();
 		return this.httpClient
 			.put(
-				`http://localhost:1337/api/users/${this.id}`,
+				`https://language-learn.onrender.com/api/users/${this.id}`,
 				{
 					level: this.level,
 				},
@@ -195,7 +195,7 @@ export class AchievementsService {
 			this.unlockedCategory3 = true;
 			this.httpClient
 				.put(
-					`http://localhost:1337/api/users/${this.id}`,
+					`https://language-learn.onrender.com/api/users/${this.id}`,
 					{
 						isanimalsunlocked: true,
 					},
@@ -212,7 +212,7 @@ export class AchievementsService {
 			this.unlockedCategory2 = true;
 			this.httpClient
 				.put(
-					`http://localhost:1337/api/users/${this.id}`,
+					`https://language-learn.onrender.com/api/users/${this.id}`,
 					{
 						isfamilyunlocked: true,
 					},
@@ -228,7 +228,7 @@ export class AchievementsService {
 			this.unlockedCategory1 = true;
 			this.httpClient
 				.put(
-					`http://localhost:1337/api/users/${this.id}`,
+					`https://language-learn.onrender.com/api/users/${this.id}`,
 					{
 						ishomeunlocked: true,
 					},
@@ -244,7 +244,7 @@ export class AchievementsService {
 		this.isExtraCategoryUnlocked = true;
 		this.httpClient
 			.put(
-				`http://localhost:1337/api/users/${this.id}`,
+				`https://language-learn.onrender.com/api/users/${this.id}`,
 				{
 					ishomophonesunlocked: true,
 				},
@@ -263,7 +263,7 @@ export class AchievementsService {
 		this.isExtraCategoryUnlocked = true;
 		this.httpClient
 			.put(
-				`http://localhost:1337/api/users/${this.id}`,
+				`https://language-learn.onrender.com/api/users/${this.id}`,
 				{
 					istransitionunlocked: true,
 				},
