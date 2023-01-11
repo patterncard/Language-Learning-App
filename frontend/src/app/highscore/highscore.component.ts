@@ -22,7 +22,7 @@ export class HighscoreComponent implements OnInit {
 		this.primengConfig.ripple = true;
 		this.httpClient
 			.get<Highscore[]>(
-				'http://localhost:1337/api/users/?sort=points%3Adesc'
+				'https://language-learn.onrender.com/api/users/?sort=level%3Adesc'
 			)
 			.subscribe((res) => {
 				this.highscores = res;

@@ -46,7 +46,7 @@ export class PictureComponent implements OnInit {
 		const fd = new FormData();
 		fd.append('files', this.selectedFile, this.selectedFile.name);
 		this.httpClient
-			.post('http://localhost:1337/api/upload', fd, {
+			.post('https://language-learn.onrender.com/api/upload', fd, {
 				headers: { Authorization: `Bearer ${this.token}` },
 			})
 			.subscribe(
@@ -55,7 +55,7 @@ export class PictureComponent implements OnInit {
 					const imageId = this.picture[0].id;
 					this.httpClient
 						.put(
-							`http://localhost:1337/api/users/${this.id}`,
+							`https://language-learn.onrender.com/api/users/${this.id}`,
 							{
 								avatar: imageId,
 							},

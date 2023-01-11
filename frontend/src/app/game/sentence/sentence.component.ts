@@ -105,7 +105,7 @@ export class SentenceComponent implements OnInit {
 
 	getSentences() {
 		return this.httpClient.get(
-			`http://localhost:1337/api/sentences?filters\[category\][name][$eq]=${this.gameService.selectedCategory}&populate=*`
+			`https://language-learn.onrender.com/api/sentences?filters\[category\][name][$eq]=${this.gameService.selectedCategory}&populate=*`
 		);
 	}
 

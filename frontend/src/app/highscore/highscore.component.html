@@ -11,13 +11,13 @@
                 <table>
                     <thead>
                         <th>Rank</th>
-                        <th>Score</th>
+                        <th>Level</th>
                         <th>Username</th>
                     </thead>
                     <tbody>
                         <tr *ngFor="let highscore of highscores; let i = index">
                             <td>{{i + 1}}</td>
-                            <td>{{highscore.points}}</td>
+                            <td>{{highscore.level}}</td>
                             <td>{{highscore.username}}</td>
                         </tr>
                     </tbody>

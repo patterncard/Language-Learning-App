@@ -36,7 +36,7 @@ export class CategoriesComponent implements OnInit {
 
 	getCategory(categoryId: number) {
 		return this.httpClient.get(
-			`http://localhost:1337/api/categories/${categoryId}`
+			`https://language-learn.onrender.com/api/categories/${categoryId}`
 		);
 	}
 
